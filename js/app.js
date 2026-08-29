@@ -22,6 +22,7 @@ const categoryGrid = document.getElementById("category-grid");
 const quizCategoryLabel = document.getElementById("quiz-category-label");
 const progressFill = document.getElementById("progress-fill");
 const progressLabel = document.getElementById("progress-label");
+const difficultyBadge = document.getElementById("difficulty-badge");
 const questionText = document.getElementById("question-text");
 const answersList = document.getElementById("answers-list");
 const feedbackBox = document.getElementById("feedback-box");
@@ -45,6 +46,73 @@ function shuffle(array) {
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
+}
+
+const DIFFICULTY_ORDER = { leicht: 0, mittel: 1, schwer: 2 };
+const DIFFICULTY_LABEL = { leicht: "🟢 Leicht", mittel: "🟡 Mittel", schwer: "🔴 Schwer" };
+
+// Baut aus einem Fragenpool eine Auswahl, die von leicht nach schwer ansteigt
+// (für das "Große Quiz" – Millionär-artiger Spannungsbogen statt Zufallsmischung).
+function buildDifficultyRamp(questions, count) {
+  const buckets = { leicht: [], mittel: [], schwer: [] };
+  questions.forEach((q) => {
+    const level = buckets[q.difficulty] ? q.difficulty : "mittel";
+    buckets[level].push(q);
+  });
+  Object.keys(buckets).forEach((level) => {
+    buckets[level] = shuffle(buckets[level]);
+  });
+
+  const levels = ["leicht", "mittel", "schwer"];
+  const base = Math.floor(count / levels.length);
+  const quotas = { leicht: base, mittel: base, schwer: count - base * 2 };
+
+  const picked = [];
+  levels.forEach((level) => {
+    const take = Math.min(quotas[level], buckets[level].length);
+    picked.push(...buckets[level].slice(0, take));
+  });
+
+  let remaining = count - picked.length;
+  if (remaining > 0) {
+    const leftover = levels.flatMap((level) => buckets[level].slice(quotas[level]));
+    picked.push(...shuffle(leftover).slice(0, remaining));
+  }
+
+  return picked.sort((a, b) => DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty]);
+}
+
+// Fortschritt (beste Punktzahl je Kategorie) im Browser speichern.
+const PROGRESS_KEY = "nsq_progress_v1";
+
+function loadProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveProgress(trackId, categoryKey, score, total) {
+  try {
+    const progress = loadProgress();
+    const existing = progress[trackId]?.[categoryKey];
+    if (!existing || score > existing.best) {
+      progress[trackId] = progress[trackId] || {};
+      progress[trackId][categoryKey] = { best: score, total, at: Date.now() };
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+    }
+  } catch {
+    // localStorage nicht verfügbar (z. B. privater Modus) – Fortschritt einfach nicht speichern
+  }
+}
+
+function getProgress(trackId, categoryKey) {
+  try {
+    return loadProgress()[trackId]?.[categoryKey] || null;
+  } catch {
+    return null;
+  }
 }
 
 function showScreen(name) {
@@ -92,8 +160,9 @@ function renderCategories() {
   mixCard.innerHTML = `
     <span class="category-emoji" aria-hidden="true">🔀</span>
     <span class="category-title">Großes ${track.title}-Quiz</span>
-    <span class="category-desc">Zufällige Mischung aus allen ${track.categories.length} Kategorien dieses Bereichs.</span>
+    <span class="category-desc">Von leicht bis schwer – Fragen aus allen ${track.categories.length} Kategorien dieses Bereichs, mit steigendem Schwierigkeitsgrad.</span>
     <span class="category-count">${mixCount} Fragen</span>
+    ${progressBadge(track.id, "__mixed__")}
   `;
   mixCard.addEventListener("click", () => startMixedQuiz(track.id));
   categoryGrid.appendChild(mixCard);
@@ -107,10 +176,18 @@ function renderCategories() {
       <span class="category-title">${category.title}</span>
       <span class="category-desc">${category.description}</span>
       <span class="category-count">${category.questions.length} Fragen</span>
+      ${progressBadge(track.id, category.id)}
     `;
     card.addEventListener("click", () => startQuiz(track.id, category.id));
     categoryGrid.appendChild(card);
   });
+}
+
+function progressBadge(trackId, categoryKey) {
+  const record = getProgress(trackId, categoryKey);
+  if (!record) return "";
+  const percent = Math.round((record.best / record.total) * 100);
+  return `<span class="progress-badge">✓ Beste Runde: ${record.best}/${record.total} (${percent}%)</span>`;
 }
 
 function startQuiz(trackId, categoryId) {
@@ -141,7 +218,7 @@ function startMixedQuiz(trackId) {
   state.trackId = trackId;
   state.categoryId = null;
   state.mixed = true;
-  state.questions = shuffle(allQuestions).slice(0, mixCount);
+  state.questions = buildDifficultyRamp(allQuestions, mixCount);
   state.currentIndex = 0;
   state.score = 0;
   state.answered = false;
@@ -164,6 +241,13 @@ function renderQuestion() {
   feedbackBox.textContent = "";
   feedbackBox.className = "feedback-box";
   nextButton.hidden = true;
+
+  if (state.mixed && question.difficulty) {
+    difficultyBadge.textContent = DIFFICULTY_LABEL[question.difficulty] || "";
+    difficultyBadge.hidden = false;
+  } else {
+    difficultyBadge.hidden = true;
+  }
 
   answersList.innerHTML = "";
   question.answers.forEach((answerText, index) => {
@@ -222,6 +306,8 @@ function showResult() {
   const score = state.score;
   const percent = Math.round((score / total) * 100);
 
+  saveProgress(state.trackId, state.mixed ? "__mixed__" : state.categoryId, score, total);
+
   resultScoreEl.textContent = `${score} / ${total}`;
 
   let title;
@@ -242,8 +328,13 @@ function showResult() {
   showScreen("result");
 }
 
+function backToCategories() {
+  renderCategories();
+  showScreen("categories");
+}
+
 nextButton.addEventListener("click", goToNext);
-quitButton.addEventListener("click", () => showScreen("categories"));
+quitButton.addEventListener("click", backToCategories);
 retryButton.addEventListener("click", () => {
   if (state.mixed) {
     startMixedQuiz(state.trackId);
@@ -251,7 +342,7 @@ retryButton.addEventListener("click", () => {
     startQuiz(state.trackId, state.categoryId);
   }
 });
-otherCategoryButton.addEventListener("click", () => showScreen("categories"));
+otherCategoryButton.addEventListener("click", backToCategories);
 
 state.trackId = QUIZ_TRACKS[0].id;
 renderTrackTabs();

@@ -231,6 +231,13 @@ main {
   background: rgba(22, 50, 74, 0.1);
 }
 
+.progress-badge {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--correct);
+}
+
 /* Quiz-Screen */
 .quiz-card {
   background: var(--card-bg);
@@ -278,11 +285,26 @@ main {
   transition: width 0.3s ease;
 }
 
+.progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
 #progress-label {
-  display: block;
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
+}
+
+.difficulty-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #f1ede3;
+  white-space: nowrap;
 }
 
 #question-text {
