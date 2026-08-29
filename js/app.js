@@ -49,9 +49,8 @@ const contactForm = document.getElementById("contact-form");
 const contactSuccess = document.getElementById("contact-success");
 const contactError = document.getElementById("contact-error");
 
-// TODO: echten Rabattcode/Text mit Neustart Schweden abstimmen – aktuell ein Platzhalter.
 const DISCOUNT_THRESHOLD_PERCENT = 80;
-const DISCOUNT_CODE = "SCHWEDEN10";
+const DISCOUNT_CODE = "NEUSTART_SE10";
 
 function getCurrentTrack() {
   return QUIZ_TRACKS.find((t) => t.id === state.trackId) || QUIZ_TRACKS[0];
