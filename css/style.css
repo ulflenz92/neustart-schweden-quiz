@@ -46,17 +46,10 @@ h1, h2, .result-label ~ #result-title {
 }
 
 .brand-mark {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent);
+  display: block;
 }
 
 .brand-name {
@@ -585,6 +578,19 @@ textarea:focus {
 
 .site-footer a {
   color: var(--navy);
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.78rem;
+}
+
+.legal-links a {
+  color: var(--text-muted);
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
