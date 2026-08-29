@@ -4,22 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neustart Schweden – Quiz</title>
-  <meta name="description" content="Teste dein Wissen rund um den Neustart in Schweden: Sprache, Behörden, Wohnen, Jobsuche und Kultur." />
+  <meta name="description" content="Teste dein Wissen rund um den Neustart in Schweden: Sprache, Behörden, Wohnen, Jobsuche und spannende Schweden-Fakten." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="site-header">
-    <span class="flag-stripe" aria-hidden="true"></span>
-    <h1>Neustart Schweden – Quiz</h1>
+    <div class="brand-badge">
+      <span class="brand-mark" aria-hidden="true">NS</span>
+      <span class="brand-name">Neustart Schweden</span>
+    </div>
+    <span class="eyebrow">Wie gut kennst du Schweden schon?</span>
+    <h1>Das <em>Neustart</em>-Schweden-Quiz</h1>
     <p>
-      Teste dein Wissen rund um den Umzug nach Schweden ·
+      Von Behörden-Basics bis Fun Facts über Elche und Mitternachtssonne ·
       <a class="home-link" href="https://neustart-schweden.de/">zurück zu neustart-schweden.de</a>
     </p>
   </header>
 
   <main>
     <section id="screen-categories" class="screen">
-      <h2>Wähle eine Kategorie</h2>
+      <div id="track-tabs" class="track-tabs"></div>
       <div id="category-grid" class="category-grid"></div>
     </section>
 
@@ -45,7 +52,7 @@
 
     <section id="screen-result" class="screen">
       <div class="result-card">
-        <p>Dein Ergebnis</p>
+        <p class="result-label">Dein Ergebnis</p>
         <p id="result-score">0 / 0</p>
         <h2 id="result-title"></h2>
         <p id="result-message"></p>

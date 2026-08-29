@@ -1,10 +1,17 @@
 // Fragenkatalog für das Neustart-Schweden-Quiz.
-// Jede Kategorie hat eine id, einen Titel, ein Emoji, eine Kurzbeschreibung
-// und eine Liste von Fragen. Jede Frage hat 4 Antwortoptionen, den Index
-// der richtigen Antwort sowie eine kurze Erklärung, die nach der Antwort
-// angezeigt wird.
+// Die Fragen sind in zwei Tracks gruppiert (praktischer Ratgeber vs.
+// Schweden-Wissen/Trivia), jeder Track enthält Kategorien mit id, Titel,
+// Emoji, Kurzbeschreibung und einer Fragenliste. Jede Frage hat 4
+// Antwortoptionen, den Index der richtigen Antwort sowie eine kurze
+// Erklärung, die nach der Antwort angezeigt wird.
 
-const QUIZ_CATEGORIES = [
+const QUIZ_TRACKS = [
+  {
+    id: "praktisch",
+    title: "Praktischer Neustart",
+    emoji: "🧭",
+    description: "Behörden, Wohnen, Jobsuche & Sprache für den Umzug.",
+    categories: [
   {
     id: "sprache",
     title: "Sprache & Kommunikation",
@@ -284,5 +291,14 @@ const QUIZ_CATEGORIES = [
         explanation: "„Mysigt“ beschreibt eine gemütliche, angenehme Atmosphäre – ein zentrales Gefühl in der schwedischen Alltagskultur."
       }
     ]
+  }
+    ]
+  },
+  {
+    id: "wissen",
+    title: "Schweden-Wissen",
+    emoji: "🇸🇪",
+    description: "Fun Facts, Zahlen, Natur, Tiere und Geschichte.",
+    categories: []
   }
 ];

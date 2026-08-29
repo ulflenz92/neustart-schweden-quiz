@@ -1,7 +1,8 @@
 // Quiz-Logik für das Neustart-Schweden-Quiz.
-// Steuert Navigation zwischen Kategorie-Auswahl, Fragen-Screen und Ergebnis-Screen.
+// Steuert Navigation zwischen Track-/Kategorie-Auswahl, Fragen-Screen und Ergebnis-Screen.
 
 const state = {
+  trackId: null,
   categoryId: null,
   questions: [],
   currentIndex: 0,
@@ -15,6 +16,7 @@ const screens = {
   result: document.getElementById("screen-result")
 };
 
+const trackTabs = document.getElementById("track-tabs");
 const categoryGrid = document.getElementById("category-grid");
 const quizCategoryLabel = document.getElementById("quiz-category-label");
 const progressFill = document.getElementById("progress-fill");
@@ -31,6 +33,10 @@ const resultMessageEl = document.getElementById("result-message");
 const retryButton = document.getElementById("retry-button");
 const otherCategoryButton = document.getElementById("other-category-button");
 
+function getCurrentTrack() {
+  return QUIZ_TRACKS.find((t) => t.id === state.trackId) || QUIZ_TRACKS[0];
+}
+
 function showScreen(name) {
   Object.entries(screens).forEach(([key, el]) => {
     el.classList.toggle("active", key === name);
@@ -38,9 +44,36 @@ function showScreen(name) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function renderTrackTabs() {
+  trackTabs.innerHTML = "";
+  QUIZ_TRACKS.forEach((track) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "track-tab";
+    btn.classList.toggle("active", track.id === state.trackId);
+    btn.innerHTML = `<span aria-hidden="true">${track.emoji}</span> ${track.title}`;
+    btn.addEventListener("click", () => {
+      state.trackId = track.id;
+      renderTrackTabs();
+      renderCategories();
+    });
+    trackTabs.appendChild(btn);
+  });
+}
+
 function renderCategories() {
+  const track = getCurrentTrack();
   categoryGrid.innerHTML = "";
-  QUIZ_CATEGORIES.forEach((category) => {
+
+  if (!track.categories.length) {
+    const empty = document.createElement("p");
+    empty.className = "category-empty";
+    empty.textContent = "Für diesen Bereich kommen die Fragen in Kürze dazu.";
+    categoryGrid.appendChild(empty);
+    return;
+  }
+
+  track.categories.forEach((category) => {
     const card = document.createElement("button");
     card.className = "category-card";
     card.type = "button";
@@ -50,15 +83,17 @@ function renderCategories() {
       <span class="category-desc">${category.description}</span>
       <span class="category-count">${category.questions.length} Fragen</span>
     `;
-    card.addEventListener("click", () => startQuiz(category.id));
+    card.addEventListener("click", () => startQuiz(track.id, category.id));
     categoryGrid.appendChild(card);
   });
 }
 
-function startQuiz(categoryId) {
-  const category = QUIZ_CATEGORIES.find((c) => c.id === categoryId);
+function startQuiz(trackId, categoryId) {
+  const track = QUIZ_TRACKS.find((t) => t.id === trackId);
+  const category = track && track.categories.find((c) => c.id === categoryId);
   if (!category) return;
 
+  state.trackId = trackId;
   state.categoryId = categoryId;
   state.questions = category.questions;
   state.currentIndex = 0;
@@ -163,8 +198,10 @@ function showResult() {
 
 nextButton.addEventListener("click", goToNext);
 quitButton.addEventListener("click", () => showScreen("categories"));
-retryButton.addEventListener("click", () => startQuiz(state.categoryId));
+retryButton.addEventListener("click", () => startQuiz(state.trackId, state.categoryId));
 otherCategoryButton.addEventListener("click", () => showScreen("categories"));
 
+state.trackId = QUIZ_TRACKS[0].id;
+renderTrackTabs();
 renderCategories();
 showScreen("categories");
