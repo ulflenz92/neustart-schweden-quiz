@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neustart Schweden – Quiz</title>
+  <meta name="description" content="Teste dein Wissen rund um den Neustart in Schweden: Sprache, Behörden, Wohnen, Jobsuche und Kultur." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <span class="flag-stripe" aria-hidden="true"></span>
+    <h1>Neustart Schweden – Quiz</h1>
+    <p>
+      Teste dein Wissen rund um den Umzug nach Schweden ·
+      <a class="home-link" href="https://neustart-schweden.de/">zurück zu neustart-schweden.de</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="screen-categories" class="screen">
+      <h2>Wähle eine Kategorie</h2>
+      <div id="category-grid" class="category-grid"></div>
+    </section>
+
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <span id="quiz-category-label"></span>
+          <button id="quit-button" class="quit-link" type="button">Kategorie wechseln</button>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-label"></span>
+
+        <p id="question-text"></p>
+        <ul id="answers-list"></ul>
+
+        <p id="feedback-box" class="feedback-box"></p>
+
+        <button id="next-button" class="primary-button" type="button" hidden>Nächste Frage →</button>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen">
+      <div class="result-card">
+        <p>Dein Ergebnis</p>
+        <p id="result-score">0 / 0</p>
+        <h2 id="result-title"></h2>
+        <p id="result-message"></p>
+        <div class="result-actions">
+          <button id="retry-button" class="primary-button" type="button">Nochmal versuchen</button>
+          <button id="other-category-button" class="secondary-button" type="button">Andere Kategorie</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Ein Projekt von <a href="https://neustart-schweden.de/">Neustart Schweden</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
