@@ -4,6 +4,7 @@
 const state = {
   trackId: null,
   categoryId: null,
+  mixed: false,
   questions: [],
   currentIndex: 0,
   score: 0,
@@ -35,6 +36,15 @@ const otherCategoryButton = document.getElementById("other-category-button");
 
 function getCurrentTrack() {
   return QUIZ_TRACKS.find((t) => t.id === state.trackId) || QUIZ_TRACKS[0];
+}
+
+function shuffle(array) {
+  const copy = array.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
 }
 
 function showScreen(name) {
@@ -73,6 +83,21 @@ function renderCategories() {
     return;
   }
 
+  const totalQuestions = track.categories.reduce((sum, c) => sum + c.questions.length, 0);
+  const mixCount = Math.min(track.mixCount || 15, totalQuestions);
+
+  const mixCard = document.createElement("button");
+  mixCard.className = "category-card mix-card";
+  mixCard.type = "button";
+  mixCard.innerHTML = `
+    <span class="category-emoji" aria-hidden="true">🔀</span>
+    <span class="category-title">Großes ${track.title}-Quiz</span>
+    <span class="category-desc">Zufällige Mischung aus allen ${track.categories.length} Kategorien dieses Bereichs.</span>
+    <span class="category-count">${mixCount} Fragen</span>
+  `;
+  mixCard.addEventListener("click", () => startMixedQuiz(track.id));
+  categoryGrid.appendChild(mixCard);
+
   track.categories.forEach((category) => {
     const card = document.createElement("button");
     card.className = "category-card";
@@ -95,12 +120,33 @@ function startQuiz(trackId, categoryId) {
 
   state.trackId = trackId;
   state.categoryId = categoryId;
+  state.mixed = false;
   state.questions = category.questions;
   state.currentIndex = 0;
   state.score = 0;
   state.answered = false;
 
   quizCategoryLabel.textContent = `${category.emoji} ${category.title}`;
+  showScreen("quiz");
+  renderQuestion();
+}
+
+function startMixedQuiz(trackId) {
+  const track = QUIZ_TRACKS.find((t) => t.id === trackId);
+  if (!track) return;
+
+  const allQuestions = track.categories.flatMap((c) => c.questions);
+  const mixCount = Math.min(track.mixCount || 15, allQuestions.length);
+
+  state.trackId = trackId;
+  state.categoryId = null;
+  state.mixed = true;
+  state.questions = shuffle(allQuestions).slice(0, mixCount);
+  state.currentIndex = 0;
+  state.score = 0;
+  state.answered = false;
+
+  quizCategoryLabel.textContent = `🔀 Großes ${track.title}-Quiz`;
   showScreen("quiz");
   renderQuestion();
 }
@@ -198,7 +244,13 @@ function showResult() {
 
 nextButton.addEventListener("click", goToNext);
 quitButton.addEventListener("click", () => showScreen("categories"));
-retryButton.addEventListener("click", () => startQuiz(state.trackId, state.categoryId));
+retryButton.addEventListener("click", () => {
+  if (state.mixed) {
+    startMixedQuiz(state.trackId);
+  } else {
+    startQuiz(state.trackId, state.categoryId);
+  }
+});
 otherCategoryButton.addEventListener("click", () => showScreen("categories"));
 
 state.trackId = QUIZ_TRACKS[0].id;

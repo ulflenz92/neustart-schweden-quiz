@@ -220,6 +220,17 @@ main {
   border-radius: 999px;
 }
 
+.mix-card {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--navy);
+  background: linear-gradient(135deg, rgba(22, 50, 74, 0.05) 0%, rgba(193, 101, 47, 0.05) 100%);
+}
+
+.mix-card .category-count {
+  color: var(--navy);
+  background: rgba(22, 50, 74, 0.1);
+}
+
 /* Quiz-Screen */
 .quiz-card {
   background: var(--card-bg);

@@ -11,6 +11,7 @@ const QUIZ_TRACKS = [
     title: "Praktischer Neustart",
     emoji: "🧭",
     description: "Behörden, Wohnen, Jobsuche & Sprache für den Umzug.",
+    mixCount: 15,
     categories: [
   {
     id: "sprache",
@@ -299,6 +300,7 @@ const QUIZ_TRACKS = [
     title: "Schweden-Wissen",
     emoji: "🇸🇪",
     description: "Fun Facts, Zahlen, Natur, Tiere und Geschichte.",
+    mixCount: 20,
     categories: [
       {
         id: "zahlen",
