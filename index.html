@@ -63,12 +63,50 @@
           <button id="retry-button" class="primary-button" type="button">Nochmal versuchen</button>
           <button id="other-category-button" class="secondary-button" type="button">Andere Kategorie</button>
         </div>
+
+        <div id="discount-block" class="discount-block" hidden>
+          <p class="discount-intro">🎉 Starke Leistung! Ab 80 % im großen Quiz gibt's einen Rabattcode für die Beratung bei Neustart Schweden.</p>
+          <form id="discount-form" name="rabattcode" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <p class="hidden-field" aria-hidden="true">
+              <label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+            <input type="hidden" name="form-name" value="rabattcode" />
+            <input type="hidden" name="ergebnis" id="discount-result-meta" value="" />
+            <div class="form-row">
+              <input type="email" name="email" id="discount-email" placeholder="Deine E-Mail-Adresse" required />
+              <button type="submit" class="primary-button">Code anfordern</button>
+            </div>
+            <p class="form-hint">Wir nutzen deine E-Mail nur, um dir den Code zu schicken und dich auf Wunsch über Neustart Schweden auf dem Laufenden zu halten.</p>
+          </form>
+          <div id="discount-success" class="discount-success" hidden>
+            <p>Danke! Dein Rabattcode:</p>
+            <p id="discount-code-text" class="discount-code"></p>
+            <p class="form-hint">Einfach bei deiner Anfrage über <a href="https://neustart-schweden.de/">neustart-schweden.de</a> angeben.</p>
+          </div>
+          <p id="discount-error" class="form-error" hidden>Puh, das hat gerade nicht geklappt. Magst du es nochmal versuchen?</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>Ein Projekt von <a href="https://neustart-schweden.de/">Neustart Schweden</a></p>
+
+    <button id="contact-toggle" class="contact-toggle" type="button">✉️ Fragen oder Feedback? Schreib uns</button>
+    <div id="contact-block" class="contact-block" hidden>
+      <form id="contact-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field-kontakt">
+        <p class="hidden-field" aria-hidden="true">
+          <label>Nicht ausfüllen: <input name="bot-field-kontakt" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <input type="hidden" name="form-name" value="kontakt" />
+        <input type="text" name="name" placeholder="Dein Name" required />
+        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
+        <textarea name="nachricht" placeholder="Deine Nachricht" rows="4" required></textarea>
+        <button type="submit" class="primary-button">Nachricht senden</button>
+      </form>
+      <p id="contact-success" class="form-hint" hidden>Danke für deine Nachricht! Wir melden uns bei dir.</p>
+      <p id="contact-error" class="form-error" hidden>Puh, das hat gerade nicht geklappt. Magst du es nochmal versuchen?</p>
+    </div>
   </footer>
 
   <script src="js/data.js"></script>

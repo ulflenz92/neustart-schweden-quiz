@@ -462,6 +462,120 @@ main {
   margin-top: 1.5rem;
 }
 
+/* Rabattcode-Block */
+.discount-block {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #e9e2d4;
+  text-align: left;
+}
+
+.discount-intro {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.hidden-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.form-row input[type="email"],
+.form-row input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #e3dccd;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+
+.form-row .primary-button {
+  margin-top: 0;
+}
+
+.form-hint {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.form-error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--incorrect);
+}
+
+.discount-success {
+  text-align: center;
+}
+
+.discount-code {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-dark);
+  background: rgba(193, 101, 47, 0.1);
+  border: 2px dashed var(--accent);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  display: inline-block;
+  margin: 0.4rem 0;
+}
+
+/* Kontakt im Footer */
+.contact-toggle {
+  display: block;
+  margin: 0.75rem auto 0;
+  background: none;
+  border: none;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+.contact-block {
+  max-width: 420px;
+  margin: 1rem auto 0;
+  text-align: left;
+}
+
+.contact-block form:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 .site-footer {
   text-align: center;
   color: var(--text-muted);

@@ -35,6 +35,24 @@ const resultMessageEl = document.getElementById("result-message");
 const retryButton = document.getElementById("retry-button");
 const otherCategoryButton = document.getElementById("other-category-button");
 
+const discountBlock = document.getElementById("discount-block");
+const discountForm = document.getElementById("discount-form");
+const discountEmail = document.getElementById("discount-email");
+const discountResultMeta = document.getElementById("discount-result-meta");
+const discountSuccess = document.getElementById("discount-success");
+const discountCodeText = document.getElementById("discount-code-text");
+const discountError = document.getElementById("discount-error");
+
+const contactToggle = document.getElementById("contact-toggle");
+const contactBlock = document.getElementById("contact-block");
+const contactForm = document.getElementById("contact-form");
+const contactSuccess = document.getElementById("contact-success");
+const contactError = document.getElementById("contact-error");
+
+// TODO: echten Rabattcode/Text mit Neustart Schweden abstimmen – aktuell ein Platzhalter.
+const DISCOUNT_THRESHOLD_PERCENT = 80;
+const DISCOUNT_CODE = "SCHWEDEN10";
+
 function getCurrentTrack() {
   return QUIZ_TRACKS.find((t) => t.id === state.trackId) || QUIZ_TRACKS[0];
 }
@@ -301,12 +319,39 @@ function goToNext() {
   }
 }
 
+// Übermittelt ein Formular per AJAX an Netlify Forms (verhindert vollen Seiten-Reload).
+function submitNetlifyForm(form) {
+  const body = new URLSearchParams(new FormData(form)).toString();
+  return fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body
+  }).then((response) => {
+    if (!response.ok) throw new Error(`Formular-Übermittlung fehlgeschlagen: ${response.status}`);
+    return response;
+  });
+}
+
+function resetDiscountBlock() {
+  discountForm.hidden = false;
+  discountSuccess.hidden = true;
+  discountError.hidden = true;
+  discountEmail.value = "";
+}
+
 function showResult() {
   const total = state.questions.length;
   const score = state.score;
   const percent = Math.round((score / total) * 100);
 
   saveProgress(state.trackId, state.mixed ? "__mixed__" : state.categoryId, score, total);
+
+  const qualifiesForDiscount = state.mixed && percent >= DISCOUNT_THRESHOLD_PERCENT;
+  discountBlock.hidden = !qualifiesForDiscount;
+  if (qualifiesForDiscount) {
+    resetDiscountBlock();
+    discountResultMeta.value = `${getCurrentTrack().title}: ${score}/${total} (${percent}%)`;
+  }
 
   resultScoreEl.textContent = `${score} / ${total}`;
 
@@ -343,6 +388,37 @@ retryButton.addEventListener("click", () => {
   }
 });
 otherCategoryButton.addEventListener("click", backToCategories);
+
+discountForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  discountError.hidden = true;
+  submitNetlifyForm(discountForm)
+    .then(() => {
+      discountForm.hidden = true;
+      discountCodeText.textContent = DISCOUNT_CODE;
+      discountSuccess.hidden = false;
+    })
+    .catch(() => {
+      discountError.hidden = false;
+    });
+});
+
+contactToggle.addEventListener("click", () => {
+  contactBlock.hidden = !contactBlock.hidden;
+});
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  contactError.hidden = true;
+  submitNetlifyForm(contactForm)
+    .then(() => {
+      contactForm.hidden = true;
+      contactSuccess.hidden = false;
+    })
+    .catch(() => {
+      contactError.hidden = false;
+    });
+});
 
 state.trackId = QUIZ_TRACKS[0].id;
 renderTrackTabs();
