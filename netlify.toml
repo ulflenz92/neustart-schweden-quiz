@@ -1,2 +1,3 @@
 [build]
   publish = "."
+  ignore = "git diff --quiet HEAD^ HEAD -- . ':!STATUS.md'"
