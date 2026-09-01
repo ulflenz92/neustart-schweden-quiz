@@ -49,6 +49,16 @@ Alle 10 Seiten erneut automatisiert geprüft: HTTP 200, keine JS-Fehler, keine "
 
 **Bewusst nicht angefasst:** Der `cta-final`-Block ganz unten auf `angebote.html` bewirbt korrekt nur das kostenlose Gespräch (kein Widerspruch, unverändert gelassen).
 
+### Weitere Runde: `NSv13.6-kennenlernen-first.zip` (nach erneutem Live-Review von NSv13.5)
+
+Nutzer hatte NSv13.5 geprüft und 2 weitere Punkte gefunden:
+1. Der Calendly-Hinweistext ("kostenpflichtiger Vertrag entsteht dadurch noch nicht...") stand noch bei Buttons, die **ausschließlich** zum kostenlosen Kennenlerngespräch führen – dort unnötig/verwirrend, da eh kein Vertrag entstehen kann. **Entfernt** in `angebote.html` (cta-final-Block) und `faq.html` (dort auch entdeckt, war beim letzten Durchgang übersehen worden).
+2. Die Teaser-CTA-Boxen (`dalarna.html`, `warum-schweden.html`, `waldorf.html`, `ueber-mich.html`, `faq.html`) warben inhaltlich (Überschrift/Text/Checkliste) weiterhin hauptsächlich fürs bezahlte 90-Min-Orientierungsgespräch, obwohl der Button schon auf "Anfragen" stand – passte nicht zur Grundregel "Kennenlerngespräch = zentraler Einstieg". **Umgebaut:** Text/Checkliste jetzt aufs kostenlose 15-Min-Kennenlerngespräch ausgerichtet, Haupt-Button wieder "Kostenlos kennenlernen" → Calendly, zusätzlich kleiner Text-Link darunter ("Ihr wisst schon genug? → Direkt Orientierungsgespräch anfragen") → Fragebogen für Besucher, die schon weiter sind.
+
+`index.html`- und `angebote.html`-Angebot-Sektionen (die Zwei-Boxen-Lösung mit Erster-/Zweiter-Schritt) sind davon nicht betroffen – dort war die Balance schon korrekt.
+
+Alle 10 Seiten erneut automatisiert geprüft (HTTP 200, keine JS-Fehler) + Screenshots der neuen Boxen visuell kontrolliert.
+
 ➡️ **Nächster Schritt:** Nutzer lädt die ZIP bei Netlify hoch und prüft das Ergebnis live.
 
 ## Weitere offene Themen
