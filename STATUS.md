@@ -30,22 +30,23 @@
 - **Name-Fix nötig:** `ueber-mich.html` hat fehlerhafte Meta-Tags "Jan Schneider" (Template-Rest) – korrekter Name ist **Ulf Lenz**. Muss korrigiert werden.
 - **Kalender:** eigener Google-Kalender "Neustart Schweden – Termine" empfohlen (nicht privater Kalender). Infomaniak/kSuite ist die langfristige Infrastruktur-Wahl des Nutzers, aktuell aber noch in Einrichtung (keine funktionierende Domain-E-Mail bisher) – **kein Launch-Blocker**, erstmal mit Google Calendar arbeiten.
 
-## Vorbereitet, aber noch NICHT live (wartet auf Nutzer-Freigabe + Upload)
+## Vorbereitet, aber noch NICHT live (wartet auf Nutzer-Upload)
 
-Nächste Homepage-ZIP wird **beides zusammen** enthalten:
-1. Bereits fertig vorbereitet: Quiz-Verlinkung (Nav + Hamburger auf allen 10 Seiten), `_redirects` für `/schweden-quiz`, Datenschutz-Abschnitt zum Quiz.
-2. **Neu, noch umzusetzen** (Plan wurde vorgeschlagen, wartet auf finales Go):
-   - Alle "Termin anfragen"-Buttons/Nav-CTAs → "Kostenlos kennenlernen", Link auf neuen Calendly-Link
-   - Hero-Bereich (index.html): neuer 3. CTA-Button fürs Kennenlerngespräch
-   - Orientierungsgespräch-Karte: Preis 199 € → 149 € (Einführungspreis bis 31.12.2026), Hinweistext dass Kennenlerngespräch der erste Schritt ist
-   - Neuer kurzer Ablauf-Block: Kennenlernen → Bedarf klären → Orientierungsgespräch → weitere Begleitung
-   - angebote.html: Vergleichstabelle + Sekundärbuttons ("Erst ein Gespräch") anpassen
-   - FAQ-Eintrag: Unterschied Kennenlerngespräch vs. Orientierungsgespräch
-   - Fragebogen-Box entfernen (s. oben)
-   - Jan Schneider → Ulf Lenz (ueber-mich.html, 2 Meta-Tags)
-   - Datenschutz: Satz ergänzen, dass Calendly nur noch fürs Kennenlerngespräch läuft
+Neueste Homepage-ZIP: **`NSv13.4-kennenlerngespraech.zip`** (an Nutzer geschickt) – enthält alles kumulativ:
+- Quiz-Verlinkung (Nav + Hamburger auf allen 10 Seiten), `_redirects` für `/schweden-quiz`, Datenschutz-Abschnitt zum Quiz
+- **Neue Kennenlerngespräch-Journey, komplett umgesetzt und automatisiert gegengecheckt (alle 10 Seiten, keine JS-Fehler, keine Reste alter Inhalte):**
+  - Alle "Termin anfragen"-Buttons/Nav-CTAs → "Kostenlos kennenlernen" (neuer Calendly-Link `kennenlerngespraech`)
+  - Hero (index.html): neuer primärer CTA "15 Min. kostenlos kennenlernen"
+  - Preis überall 199 € → 149 € "Einführungspreis, gültig bis 31.12.2026"
+  - "So läuft es ab"-Block (index.html) + FAQ-Ablaufschritte an neue Reihenfolge angepasst
+  - Neuer FAQ-Eintrag: Unterschied Kennenlerngespräch vs. Orientierungsgespräch
+  - Fragebogen-Box + zugehörige Buttons entfernt (9 Stellen, 7 Seiten); Erklärtexte angepasst
+  - Jan Schneider → Ulf Lenz (ueber-mich.html Meta-Tags)
+  - Datenschutz: Satz ergänzt, dass Calendly nur noch fürs Kennenlerngespräch läuft
 
-➡️ **Nächster Schritt:** Nutzer bestätigt/verfeinert die vorgeschlagenen Formulierungen, dann setze ich alles um und liefere eine neue ZIP zur Prüfung.
+**Bewusst nicht angefasst:** Die "Anfragen"-Buttons bei den größeren Paketen (Starter-Paket, Planung & Vorbereitung, Premium-Begleitung) verlinken weiterhin direkt zum Airtable-Fragebogen – das war nicht Teil der Absprache und betrifft einen anderen Verkaufsweg. Rückfrage an Nutzer offen, ob das auch geändert werden soll.
+
+➡️ **Nächster Schritt:** Nutzer lädt die ZIP bei Netlify hoch und prüft das Ergebnis live.
 
 ## Weitere offene Themen
 
