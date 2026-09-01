@@ -32,19 +32,22 @@
 
 ## Vorbereitet, aber noch NICHT live (wartet auf Nutzer-Upload)
 
-Neueste Homepage-ZIP: **`NSv13.4-kennenlerngespraech.zip`** (an Nutzer geschickt) – enthält alles kumulativ:
-- Quiz-Verlinkung (Nav + Hamburger auf allen 10 Seiten), `_redirects` für `/schweden-quiz`, Datenschutz-Abschnitt zum Quiz
-- **Neue Kennenlerngespräch-Journey, komplett umgesetzt und automatisiert gegengecheckt (alle 10 Seiten, keine JS-Fehler, keine Reste alter Inhalte):**
-  - Alle "Termin anfragen"-Buttons/Nav-CTAs → "Kostenlos kennenlernen" (neuer Calendly-Link `kennenlerngespraech`)
-  - Hero (index.html): neuer primärer CTA "15 Min. kostenlos kennenlernen"
-  - Preis überall 199 € → 149 € "Einführungspreis, gültig bis 31.12.2026"
-  - "So läuft es ab"-Block (index.html) + FAQ-Ablaufschritte an neue Reihenfolge angepasst
-  - Neuer FAQ-Eintrag: Unterschied Kennenlerngespräch vs. Orientierungsgespräch
-  - Fragebogen-Box + zugehörige Buttons entfernt (9 Stellen, 7 Seiten); Erklärtexte angepasst
-  - Jan Schneider → Ulf Lenz (ueber-mich.html Meta-Tags)
-  - Datenschutz: Satz ergänzt, dass Calendly nur noch fürs Kennenlerngespräch läuft
+Neueste Homepage-ZIP: **`NSv13.5-button-fixes.zip`** (an Nutzer geschickt) – Bugfix-Runde nach Live-Review von `NSv13.4`. Enthält `NSv13.4` komplett plus folgende Korrekturen:
 
-**Bewusst nicht angefasst:** Die "Anfragen"-Buttons bei den größeren Paketen (Starter-Paket, Planung & Vorbereitung, Premium-Begleitung) verlinken weiterhin direkt zum Airtable-Fragebogen – das war nicht Teil der Absprache und betrifft einen anderen Verkaufsweg. Rückfrage an Nutzer offen, ob das auch geändert werden soll.
+**Ausgangslage:** Nutzer hatte `NSv13.4` hochgeladen und live auf dem Handy geprüft – dabei 6 Probleme gefunden (Button "Kostenlos kennenlernen" stand irreführend direkt unter der bezahlten 149-€/90-Min-Beschreibung, Alt-Text-Rest "Ulf Schneider" bei ueber-mich.html, doppelter Hinweistext in angebote.html, "Erster Schritt"-Label nicht mehr korrekt).
+
+**Fix in `NSv13.5` – Zwei-Boxen-Lösung für Orientierungsgespräch (index.html + angebote.html):**
+- Neue eigenständige Box "Kostenloses Kennenlerngespräch" (Label "Erster Schritt", Button → Calendly-Link) direkt vor/über der Orientierungsgespräch-Preisbox eingefügt (jeweils 2× auf index.html: Angebot-Sektion + Buchungsbox unten; 1× auf angebote.html)
+- Orientierungsgespräch-Box/Karte: Label "Erster Schritt" → **"Zweiter Schritt"**; Button "Kostenlos kennenlernen" → **"Anfragen"**, verlinkt jetzt (konsistent mit den 3 größeren Paketen) direkt zum Airtable-Fragebogen statt zu Calendly; Hinweistexte entsprechend angepasst
+- Teaser-CTAs auf `dalarna.html`, `warum-schweden.html`, `waldorf.html`, `ueber-mich.html`: gleicher Fix (Button → "Anfragen" → Fragebogen)
+- Doppelten Calendly-Hinweistext in angebote.html-Preisbox bereinigt
+- `ueber-mich.html`: Alt-Text `"Ulf Schneider"` → `"Ulf Lenz"` (Bilddatei selbst heißt weiterhin technisch `jan.jpg`, das ist unsichtbar für Besucher und unproblematisch)
+- FAQ-Textstelle (angebote.html) an neuen Anfrageweg fürs Orientierungsgespräch angepasst
+- "So läuft es ab"-Block (index.html): Section-Tag "Orientierungsgespräch" → **"Kennenlerngespräch"**, Überschrift "Ist ein Gespräch das Richtige für euch?" → **"Lohnt sich ein Kennenlerngespräch für euch?"** – Block dreht sich inhaltlich um die ganze Journey, nicht nur ums bezahlte Gespräch
+
+Alle 10 Seiten erneut automatisiert geprüft: HTTP 200, keine JS-Fehler, keine "199 €"-Reste, keine Fragebogen-Box-Reste, kein "Ulf/Jan Schneider" mehr, Button-Anzahlen visuell + per Screenshot verifiziert.
+
+**Bewusst nicht angefasst:** Der `cta-final`-Block ganz unten auf `angebote.html` bewirbt korrekt nur das kostenlose Gespräch (kein Widerspruch, unverändert gelassen).
 
 ➡️ **Nächster Schritt:** Nutzer lädt die ZIP bei Netlify hoch und prüft das Ergebnis live.
 
