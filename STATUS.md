@@ -20,6 +20,17 @@
 - **Homepage** (`neustart-schweden.de`): eigenes, **nicht** mit GitHub verbundenes Netlify-Projekt `neustart-schweden`, läuft über manuellen ZIP-Upload durch den Nutzer. Kein direkter Schreibzugriff durch Claude.
 - **Arbeitsvereinbarung:** Änderungen am Quiz-Repo werden vor dem Push besprochen und bestätigt; Homepage-Änderungen werden als neue ZIP vorbereitet und beschrieben, Nutzer lädt selbst hoch. Keine unangekündigten Live-Änderungen.
 
+### ⚠️ Netlify-Credit-Budget – WICHTIGE STANDING RULE (seit 01.09.2026)
+
+Das Quiz-Repo ist git-verbunden mit Netlify → **jeder `git push` löst automatisch einen echten Production-Deploy aus**, unabhängig davon, wie klein die Änderung ist (auch reine Doku-Commits). Am 01.09.2026 wurde dadurch das komplette monatliche Credit-Kontingent des Netlify-Free-Plans (300 Credits/Monat) aufgebraucht – **Production-Deploys sind praktisch der einzige Verbrauchsposten** (bestätigt über Netlify-Billing-Dashboard: 20 Deploys = 300 von 305,5 verbrauchten Credits; AI-Inference/Agent Runners/Compute lagen bei 0). Das ergibt **~15 Credits pro Deploy** und damit ein effektives Budget von **nur ca. 20 Production-Deploys pro Monat** auf dem Free-Plan.
+
+**Daraus folgende Regeln, die ab sofort gelten:**
+1. **Änderungen bündeln, nicht einzeln pushen.** Mehrere Fixes/Anpassungen in einem Arbeitsgang sammeln und dann in einem Commit/Push zusammenfassen, statt nach jeder kleinen Korrektur sofort zu pushen.
+2. **`netlify.toml` hat eine Ignore-Regel** (seit Commit `b21032b`): Commits, die *ausschließlich* `STATUS.md` ändern, lösen keinen Deploy aus (`ignore = "git diff --quiet HEAD^ HEAD -- . ':!STATUS.md'"`). Bei reinen Status-Updates trotzdem sparsam bleiben – im Zweifel mit dem nächsten inhaltlichen Push kombinieren statt separat pushen.
+3. **Vor jedem Push kurz abwägen:** Lohnt sich ein sofortiger Deploy, oder kann die Änderung noch mit weiteren offenen Punkten gesammelt werden?
+4. Der Nutzer bekommt bei jedem Push eine Bestätigung von Claude – das bleibt bestehen, aber die Häufigkeit der Pushes selbst soll bewusst reduziert werden.
+5. Kontingent-Reset: Abrechnungszyklus läuft monatlich (aktuell 08.08.–07.09.2026), danach wieder 300 frische Credits. Exakte Uhrzeit des Resets ist nicht einsehbar, nur das Datum.
+
 ## Geschäftsentscheidungen (heute final geklärt)
 
 - **Zweistufiger Beratungs-Funnel:**
