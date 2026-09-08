@@ -319,15 +319,16 @@ function goToNext() {
 }
 
 // Übermittelt ein Formular per AJAX an Netlify Forms (verhindert vollen Seiten-Reload).
+// Absolute Ziel-URL statt "/": die Seite läuft auch geproxyt unter neustart-schweden.de/schweden-quiz/,
+// wo Netlify Forms nicht registriert ist. mode:"no-cors", da die Cross-Origin-Antwort ohnehin nicht
+// gelesen werden kann – der Request selbst kommt trotzdem an, das reicht für die Formularverarbeitung.
 function submitNetlifyForm(form) {
   const body = new URLSearchParams(new FormData(form)).toString();
-  return fetch("/", {
+  return fetch("https://neustart-schweden-quiz.netlify.app/", {
     method: "POST",
+    mode: "no-cors",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body
-  }).then((response) => {
-    if (!response.ok) throw new Error(`Formular-Übermittlung fehlgeschlagen: ${response.status}`);
-    return response;
   });
 }
 
