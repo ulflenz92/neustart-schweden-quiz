@@ -11,6 +11,7 @@
 - **Fortschritt speichern**: beste Punktzahl je Kategorie/Mega-Quiz via `localStorage`, Badge auf Kategorie-Kacheln.
 - **Rabattcode-Funnel**: Bei ≥80 % im großen Quiz erscheint ein E-Mail-Formular; nach Absenden wird sofort der Code **`NEUSTART_SE10`** (10 % auf die Erstberatung) angezeigt (kein Mailversand – Code erscheint direkt auf der Seite). Läuft über Netlify Forms.
 - **Kontaktformular** im Footer (Name/E-Mail/Nachricht), ebenfalls Netlify Forms.
+- **Bugfix 08.09.2026 (Commit `4a6359b`):** Beide Formulare schlugen fehl, wenn das Quiz über den `/schweden-quiz`-Proxy aufgerufen wurden – `submitNetlifyForm()` postete an relative URL `"/"`, was auf der Homepage-Domain landete statt auf der Quiz-eigenen Netlify-Site. Gefixt: absolute Ziel-URL `https://neustart-schweden-quiz.netlify.app/` + `mode:"no-cors"` (Cross-Origin-Antwort kann eh nicht gelesen werden). Lokal mit Playwright verifiziert: korrekte Request-URL/-Body, Promise löst auf, keine JS-Fehler.
 - **Branding**: echtes Logo (`logo512.png`) + Favicon, Footer-Links zu Impressum/Datenschutz/Widerrufsrecht.
 - **Design**: Navy/Creme/Orange, Fraunces + Inter, an Homepage-Look angelehnt.
 
