@@ -94,6 +94,16 @@ Nutzer bemerkte vor dem Upload: Im **Hamburger-Menü** stand auf allen 10 Seiten
 
 ➡️ **Nächster Schritt:** Nutzer lädt `NSv13.8-hamburger-fragebogen-fix.zip` hoch (aktuellste Version, ersetzt NSv13.7).
 
+### Notfall-Fix: `NSv13.9-redirect-loop-fix.zip` (NSv13.7/13.8 verursachten ERR_TOO_MANY_REDIRECTS!)
+
+Nach Upload von NSv13.8: **Komplette Redirect-Schleife**, Seite gar nicht mehr erreichbar (`ERR_TOO_MANY_REDIRECTS`). Ursache: die in NSv13.7 zusätzlich eingebaute Sicherheitsnetz-Regel in `_redirects` (`/schweden-quiz` → 301 → `/schweden-quiz/`). Netlify behandelt `/schweden-quiz` und `/schweden-quiz/` bei der Regel-Prüfung offenbar als gleich, wodurch die 301-Weiterleitung sich selbst endlos wiederholte.
+
+**Fix:** Diese 301-Regel wieder entfernt, `_redirects` zurück auf die einfache 2-Regel-Struktur (Original-Setup, jeweils direkter 200-Proxy für `/schweden-quiz` und `/schweden-quiz/*`, keine zusätzliche Weiterleitung mehr). Der eigentliche Quiz-Link-Fix (Schrägstrich in allen 20 Nav-Link-Stellen) bleibt bestehen und reicht allein aus, da alle Nav-Links jetzt korrekt auf `.../schweden-quiz/` zeigen.
+
+**Lehre:** Keine zusätzlichen "Sicherheitsnetz"-Redirect-Regeln mehr ohne triftigen Grund einbauen – erhöht das Risiko unerwarteter Netlify-spezifischer Matching-Eigenheiten (Trailing-Slash-Normalisierung) unnötig.
+
+➡️ **Nächster Schritt:** Nutzer lädt `NSv13.9-redirect-loop-fix.zip` hoch (aktuellste Version, ersetzt NSv13.7 und NSv13.8).
+
 ## Weitere offene Themen
 
 - **Footer-Link zum Quiz auf allen Seiten zusätzlich zu Nav+Hamburger?** Tendenz "ja", noch nicht final bestätigt.
