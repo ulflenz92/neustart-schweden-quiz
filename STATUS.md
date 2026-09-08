@@ -4,9 +4,11 @@
 
 ## Was bisher gebaut wurde (Quiz-Repo, Branch `claude/schweden-quiz-p5wo0a`)
 
-- **140 Fragen** in 2 Bereichen (Tabs):
-  - 🧭 **Praktischer Neustart**: 5 Kategorien × 8 Fragen (Sprache, Behörden, Wohnen, Jobsuche, Kultur)
-  - 🇸🇪 **Schweden-Wissen**: 10 Kategorien × 10 Fragen (Zahlen, Natur, Tiere, Wetter, Alltag, Essen, Traditionen, Geschichte, Vergleich D/S, Wahr-oder-falsch)
+- **161 Fragen** in 2 Bereichen (Tabs) – Stand 08.09.2026, nach Nutzer-Feedback-Runde:
+  - 🧭 **Praktischer Neustart**: 6 Kategorien × 10 Fragen (Sprache, Behörden, Wohnen, Jobsuche, Kultur & Alltag, **Größte Auswanderfehler** [neu]). Großes Quiz: 20 Fragen (vorher 15).
+  - 🇸🇪 **Schweden-Wissen**: 10 Kategorien (Zahlen [11 Fragen], Natur, Tiere, Wetter, Alltag, Essen, Traditionen, Geschichte, Vergleich D/S, Wahr-oder-falsch je 10 Fragen). Großes Quiz: 20 Fragen.
+- **Content-Qualitätsrunde (08.09.2026):** Nutzer-Tester bemängelten, dass die richtige Antwort oft an Ausführlichkeit/Länge erkennbar war (falsche Antworten oft kurz/absurd, richtige lang/nuanciert). ~40 Fragen systematisch überarbeitet (v. a. Alltag, Traditionen, Vergleich, Wahr/Falsch, Geschichte, Wetter, Tiere, Essen), sodass alle 4 Antwortoptionen ähnlich lang/plausibel sind. Zusätzlich "Pant"-Antwort (Pfandsystem) um Klammerhinweis "(schwedisch: Pant)" ergänzt, da unübersetzt wie ein Tippfehler wirkte – restliche Sprachprüfung ergab keine weiteren Fälle.
+- **Ergebnis-CTA (08.09.2026):** Nach **jedem** Quiz-Ergebnis (nicht mehr nur beim großen Quiz ab 80 %) erscheint jetzt ein score-abhängiger Hinweis + "Kostenlos kennenlernen"-Button (Calendly-Link). Ab 80 % zusätzlich ein Sekundärlink zu neustart-schweden.de/angebote.html. Der bestehende Rabattcode-Block (nur großes Quiz, ≥80 %) bleibt unverändert zusätzlich bestehen.
 - **"Großes Quiz"** pro Bereich: zufällig gemischte Auswahl (15/20 Fragen), mit **Schwierigkeits-Rampe** (leicht → mittel → schwer, alle 140 Fragen getaggt) – nur im großen Quiz, nicht in Einzelkategorien.
 - **Fortschritt speichern**: beste Punktzahl je Kategorie/Mega-Quiz via `localStorage`, Badge auf Kategorie-Kacheln.
 - **Rabattcode-Funnel**: Bei ≥80 % im großen Quiz erscheint ein E-Mail-Formular; nach Absenden wird sofort der Code **`NEUSTART_SE10`** (10 % auf die Erstberatung) angezeigt (kein Mailversand – Code erscheint direkt auf der Seite). Läuft über Netlify Forms.
@@ -112,6 +114,7 @@ Nach Upload von NSv13.8: **Komplette Redirect-Schleife**, Seite gar nicht mehr e
 
 - **Footer-Link zum Quiz auf allen Seiten zusätzlich zu Nav+Hamburger?** Tendenz "ja", noch nicht final bestätigt.
 - Datenschutz-Ergänzungen sind Entwürfe von Claude, keine Rechtsberatung – Nutzer wollte ggf. gegenchecken.
+- **Echter E-Mail-Versand für Rabattcode/Lead-Magnet (bewusst zurückgestellt, 08.09.2026):** Externes Feedback empfahl, den Rabattcode/eine künftige Checkliste ("Die 5 größten Fehler beim Auswandern") tatsächlich per E-Mail zu verschicken statt sofort auf der Seite anzuzeigen – bessere Lead-Qualität (echte E-Mail-Adressen) + Statistik. Aktuell existiert dafür kein Versand-Mechanismus (Netlify Forms sammelt nur ein, verschickt nichts an Absender). Bräuchte einen E-Mail-Dienst (z. B. Resend/Brevo, kostenlose Kontingente vorhanden) + kleine serverseitige Funktion. **Nutzer-Entscheidung:** als eigenständiges Folgeprojekt behandeln, nicht mit der aktuellen Content-/CTA-Runde vermischt. Noch nicht begonnen.
 
 ## Kurzreferenzen
 

@@ -11,7 +11,7 @@ const QUIZ_TRACKS = [
     title: "Praktischer Neustart",
     emoji: "🧭",
     description: "Behörden, Wohnen, Jobsuche & Sprache für den Umzug.",
-    mixCount: 15,
+    mixCount: 20,
     categories: [
   {
     id: "sprache",
@@ -74,6 +74,20 @@ const QUIZ_TRACKS = [
         correct: 0,
         difficulty: "leicht",
         explanation: "„Förlåt“ bedeutet „Entschuldigung“ bzw. „Verzeihung“."
+      },
+      {
+        question: "Wie sagt man auf Schwedisch „Bitte“ im Sinne von „Gern geschehen“?",
+        answers: ["Varsågod", "Tack", "Snälla", "Kanske"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "„Varsågod“ entspricht dem deutschen „Bitte“/„Gern geschehen“ als Antwort auf ein Dankeschön oder beim Überreichen von etwas."
+      },
+      {
+        question: "Was bedeutet das schwedische Entfernungsmaß „mil“?",
+        answers: ["10 Kilometer", "1,6 Kilometer", "1 Kilometer", "100 Kilometer"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Anders als die deutsche oder englische „Meile“ entspricht ein schwedisches „mil“ genau 10 Kilometern – eine klassische Verwechslungsfalle für Neuankömmlinge."
       }
     ]
   },
@@ -138,6 +152,20 @@ const QUIZ_TRACKS = [
         correct: 1,
         difficulty: "mittel",
         explanation: "Bearbeitungszeiten variieren stark je nach Fall, liegen aber häufig im Bereich mehrerer Monate – Geduld und vollständige Unterlagen helfen."
+      },
+      {
+        question: "Wie läuft die Terminvereinbarung bei den meisten schwedischen Behörden typischerweise ab?",
+        answers: ["Meist online über die jeweilige Behörden-Website oder App", "Ausschließlich postalisch per Brief", "Nur telefonisch, Online-Termine gibt es nicht", "Gar nicht, nur spontane Laufkundschaft"],
+        correct: 0,
+        difficulty: "leicht",
+        explanation: "Die meisten schwedischen Behörden bieten digitale Terminbuchung über ihre Website oder eigene Apps an – ein Grund, warum digitale Kompetenz im Alltag so wichtig ist."
+      },
+      {
+        question: "Was ist mit „Mina sidor“ bei schwedischen Behörden gemeint?",
+        answers: ["Ein persönlicher Online-Zugang zu den eigenen Behördendaten und -vorgängen", "Ein physisches Amt speziell für Neuankömmlinge", "Eine bestimmte Steuerart für Selbstständige", "Ein telefonisches Callcenter ohne Online-Zugang"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "„Mina sidor“ („Meine Seiten“) ist bei vielen Behörden der persönliche Online-Bereich, über den man z. B. den Status von Anträgen einsehen kann."
       }
     ]
   },
@@ -202,6 +230,20 @@ const QUIZ_TRACKS = [
         correct: 1,
         difficulty: "leicht",
         explanation: "„Möblerat“ heißt „möbliert“ – praktisch für den Start, wenn man noch keine eigenen Möbel hat."
+      },
+      {
+        question: "Was ist ein „förstahandskontrakt“?",
+        answers: ["Ein Erstvermietungsvertrag direkt vom Eigentümer, ohne Zwischenmieter:in", "Ein befristeter Ferienwohnungsvertrag", "Ein Vertrag ausschließlich für Studierende", "Ein Maklervertrag beim Hauskauf"],
+        correct: 0,
+        difficulty: "schwer",
+        explanation: "Ein förstahandskontrakt ist der begehrteste Vertragstyp – man mietet direkt vom Eigentümer oder der Wohnungsgesellschaft, ohne über eine Untermiete (andrahandsuthyrning) zu gehen."
+      },
+      {
+        question: "Wie wird die Wohnfläche in schwedischen Wohnungsanzeigen üblicherweise angegeben?",
+        answers: ["In Quadratmetern, ähnlich wie in Deutschland", "Nur als Anzahl der Zimmer, ohne Flächenangabe", "In Quadratfuß", "Die Wohnfläche wird in Schweden generell nicht angegeben"],
+        correct: 0,
+        difficulty: "leicht",
+        explanation: "Wie in Deutschland wird die Wohnfläche in Quadratmetern angegeben – zusätzlich findet man oft die Zimmeranzahl im Format „3 rum och kök“ (3 Zimmer und Küche)."
       }
     ]
   },
@@ -266,6 +308,20 @@ const QUIZ_TRACKS = [
         correct: 1,
         difficulty: "leicht",
         explanation: "Für viele Jobs, besonders international ausgerichtete, reicht Englisch anfangs aus – Schwedischkenntnisse verbessern aber langfristig die Chancen deutlich."
+      },
+      {
+        question: "Was ist eine „provanställning“?",
+        answers: ["Eine Probeanstellung, meist bis zu 6 Monate befristet", "Ein unbefristeter Vertrag ganz ohne Probezeit", "Ein reines, unbezahltes Praktikum", "Eine spezielle Teilzeitstelle nur für Rentner:innen"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Die provanställning ist eine gesetzlich geregelte Probeanstellung von maximal 6 Monaten, die danach automatisch in eine unbefristete Stelle übergeht, wenn nicht gekündigt wird."
+      },
+      {
+        question: "Wie wird das Gehalt in Schweden im Berufsalltag meist kommuniziert?",
+        answers: ["Meist offen als Bruttomonatsgehalt vor Steuern", "Ausschließlich als Jahresgehalt netto", "Nur als Stundenlohn, nie als Monatsgehalt", "Gehälter werden in Schweden grundsätzlich nie offen genannt"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "In Schweden wird häufig recht offen über das monatliche Bruttogehalt gesprochen – teils sind Gehaltsdaten sogar über das Finanzamt öffentlich einsehbar."
       }
     ]
   },
@@ -305,7 +361,7 @@ const QUIZ_TRACKS = [
       },
       {
         question: "Welches Recycling-/Pfandsystem ist in Schweden sehr verbreitet?",
-        answers: ["Pant für Dosen und Flaschen", "Es gibt kein Pfandsystem", "Nur für Glasflaschen", "Nur für Plastiktüten"],
+        answers: ["Ein Pfandsystem (schwedisch: Pant) für Dosen und Flaschen", "Ein staatliches Rückkaufsystem für alte Elektrogeräte", "Ein Pfandsystem, aber nur für Glasflaschen", "Ein Pfandsystem, aber nur für Plastiktüten"],
         correct: 0,
         difficulty: "leicht",
         explanation: "„Pant“ ist das Pfandsystem für Dosen und Flaschen – Rückgabeautomaten findet man in fast jedem Supermarkt."
@@ -330,6 +386,148 @@ const QUIZ_TRACKS = [
         correct: 1,
         difficulty: "leicht",
         explanation: "„Mysigt“ beschreibt eine gemütliche, angenehme Atmosphäre – ein zentrales Gefühl in der schwedischen Alltagskultur."
+      },
+      {
+        question: "Was ist ein „EPA-traktor“ (auch „A-traktor“ genannt)?",
+        answers: ["Ein auf ca. 30 km/h gedrosseltes Fahrzeug, das Jugendliche schon ab 15 Jahren fahren dürfen", "Ein landwirtschaftliches Großfahrzeug ausschließlich für Bauernhöfe", "Ein staatlich subventioniertes Elektroauto für Innenstädte", "Ein öffentliches Nahverkehrsmittel auf dem Land"],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "EPA-traktoren (oft umgebaute alte Autos) dürfen wegen ihrer Drosselung auf ca. 30 km/h bereits von 15-Jährigen mit AM-Führerschein gefahren werden – vor allem auf dem Land eine feste Jugendkultur."
+      },
+      {
+        question: "Wofür ist die schwedische „Raggare“-Szene bekannt?",
+        answers: ["Für die Leidenschaft für klassische amerikanische Oldtimer und zugehörige Treffen", "Für traditionelle Handarbeit und Stickkunst", "Für eine bestimmte Form des Volkstanzes", "Für den organisierten Wintersport im hohen Norden"],
+        correct: 0,
+        difficulty: "schwer",
+        explanation: "Die Raggare-Kultur, seit den 1950er-Jahren verwurzelt, dreht sich um die Liebe zu großen amerikanischen Oldtimern – bis heute gibt es regelmäßige Treffen und Cruising-Abende in ganz Schweden."
+      }
+    ]
+  },
+  {
+    id: "fehler",
+    title: "Größte Auswanderfehler",
+    emoji: "⚠️",
+    description: "Typische Stolperfallen – und wie man sie vermeidet.",
+    questions: [
+      {
+        question: "Welcher Fehler passiert vielen Familien beim Thema Job in Schweden am häufigsten?",
+        answers: [
+          "Sie kündigen ihren Job in Deutschland, bevor sie eine schwedische Anstellung oder einen Aufenthaltstitel sicher haben",
+          "Sie bewerben sich generell zu häufig auf zu viele offene Stellen gleichzeitig",
+          "Sie legen ihren Lebenslauf zu ausführlich statt zu kurz an",
+          "Sie sprechen im Bewerbungsgespräch zu viel Schwedisch statt Englisch"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Ohne gesicherten Job oder Aufenthaltstitel vorschnell zu kündigen, ist einer der riskantesten Schritte – Bearbeitungszeiten beim Migrationsverket können sich über Monate ziehen."
+      },
+      {
+        question: "Welcher Fehler bei der Wohnungssuche wird besonders oft unterschätzt?",
+        answers: [
+          "Man beginnt die Wohnungssuche viel zu spät und unterschätzt Wartezeiten und Konkurrenz",
+          "Man sucht ausschließlich über zu viele verschiedene Online-Portale gleichzeitig",
+          "Man besichtigt zu viele Wohnungen vor der endgültigen Entscheidung",
+          "Man fragt zu früh nach dem genauen Einzugstermin"
+        ],
+        correct: 0,
+        difficulty: "leicht",
+        explanation: "Wohnungswarteschlangen und starke Konkurrenz, besonders in Großstädten, machen eine frühzeitige, gut geplante Suche entscheidend – wer zu spät startet, gerät schnell unter Druck."
+      },
+      {
+        question: "Welche sprachliche Fehleinschätzung machen viele Neuankömmlinge?",
+        answers: [
+          "Sie gehen davon aus, dass Englisch dauerhaft für nahezu alle Lebensbereiche ausreicht, und lernen kaum Schwedisch",
+          "Sie lernen ausschließlich formelles Schwedisch, das im Alltag kaum vorkommt",
+          "Sie lernen zu früh Schwedisch, noch vor der Ankunft im Land",
+          "Sie sprechen im Alltag zu häufig Deutsch mit schwedischen Nachbarn"
+        ],
+        correct: 0,
+        difficulty: "leicht",
+        explanation: "Englisch reicht anfangs oft aus, doch ohne Schwedischkenntnisse bleiben soziale Integration, Behördengänge und viele Jobchancen langfristig eingeschränkt."
+      },
+      {
+        question: "Was unterschätzen viele Familien in Bezug auf den schwedischen Winter?",
+        answers: [
+          "Wie stark die lange Dunkelheit und Isolation psychisch belasten kann, wenn man sich nicht darauf vorbereitet",
+          "Wie schwierig es ist, im Winter überhaupt warme Kleidung im Handel zu finden",
+          "Dass es im gesamten Land durchgehend Polarnacht gibt",
+          "Dass öffentliche Gebäude im Winter grundsätzlich geschlossen bleiben"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Besonders die dunkle Jahreszeit im Norden wird oft unterschätzt – aktive Vorbereitung (Lichttherapie, Aktivitäten, soziale Kontakte) hilft vielen Familien deutlich."
+      },
+      {
+        question: "Welcher finanzielle Fehler kommt bei der Auswanderung nach Schweden häufig vor?",
+        answers: [
+          "Es wird kein finanzieller Puffer für die ersten Monate ohne gesichertes Einkommen eingeplant",
+          "Es wird zu viel Geld für die Wohnungseinrichtung vor dem Umzug ausgegeben",
+          "Es werden zu früh schwedische Aktien und Fonds gekauft",
+          "Es wird zu viel Bargeld statt Kartenzahlung mitgenommen"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Zwischen Jobsuche, Behördengängen und Wohnungssuche vergeht oft mehr Zeit als geplant – ein finanzieller Puffer für mehrere Monate ohne festes Einkommen ist entscheidend."
+      },
+      {
+        question: "Welche verbreitete Annahme über Schweden führt bei der Regionswahl oft zu Enttäuschung?",
+        answers: [
+          "Die Annahme, ganz Schweden sei wie Stockholm – urban, teuer und dicht besiedelt",
+          "Die Annahme, es gebe in Schweden überhaupt keine größeren Städte",
+          "Die Annahme, jede Region Schwedens habe exakt das gleiche Klima",
+          "Die Annahme, man dürfe als Ausländer nur in bestimmten Regionen wohnen"
+        ],
+        correct: 0,
+        difficulty: "leicht",
+        explanation: "Schweden ist landschaftlich und kulturell sehr unterschiedlich – wer sich vorher nicht mit der konkreten Zielregion auseinandersetzt, erlebt oft eine Diskrepanz zwischen Erwartung und Realität."
+      },
+      {
+        question: "Was wird bei Kindern beim Umzug nach Schweden häufig unterschätzt?",
+        answers: [
+          "Wie viel Zeit und Unterstützung Kinder brauchen, um sich sprachlich und sozial in der neuen Schule einzufinden",
+          "Wie schnell Kinder in der Regel bereits nach wenigen Tagen fließend Schwedisch sprechen",
+          "Dass Kinder in Schweden grundsätzlich keine Hausaufgaben bekommen",
+          "Dass ausländische Kinder in schwedischen Schulen nicht zugelassen werden"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Der Schulwechsel ist für Kinder oft die größte Veränderung beim Umzug – realistische Erwartungen und gezielte Unterstützung erleichtern die Eingewöhnung deutlich."
+      },
+      {
+        question: "Welcher Fehler passiert häufig, wenn Familien sich zu schnell endgültig festlegen?",
+        answers: [
+          "Sie kaufen ein Haus oder eine Wohnung, bevor sie die Region und den Alltag dort wirklich getestet haben",
+          "Sie mieten zunächst zu lange, statt sofort zu kaufen",
+          "Sie besuchen die Zielregion zu häufig vor dem endgültigen Umzug",
+          "Sie behalten ihre Wohnung in Deutschland zu lange als Rückfalloption"
+        ],
+        correct: 0,
+        difficulty: "schwer",
+        explanation: "Ein Immobilienkauf direkt nach der Ankunft, ohne die Region und den Alltag dort wirklich erlebt zu haben, birgt ein hohes Risiko – ein befristeter Probeaufenthalt oder eine Mietphase geben mehr Sicherheit."
+      },
+      {
+        question: "Welcher Fehler passiert häufig beim Thema Gesundheitsversorgung?",
+        answers: [
+          "Viele informieren sich zu spät darüber, wie die Gesundheitsversorgung vor der vollständigen Anmeldung geregelt ist",
+          "Es werden zu viele private Zusatzversicherungen gleichzeitig abgeschlossen",
+          "Arztbesuche werden in der Anfangszeit deutlich zu häufig wahrgenommen",
+          "Verschriebene Rezepte werden grundsätzlich zu selten eingelöst"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Bis zur vollständigen Folkbokföring ist die Gesundheitsversorgung nicht automatisch identisch geregelt wie danach – wer sich rechtzeitig informiert, vermeidet unangenehme Überraschungen im Ernstfall."
+      },
+      {
+        question: "Was wird beim Aufbau eines sozialen Netzwerks in Schweden häufig unterschätzt?",
+        answers: [
+          "Wie lange es dauert, außerhalb von Job und Schule feste Freundschaften mit Schwed:innen aufzubauen",
+          "Wie außergewöhnlich schnell man in Schweden neue enge Kontakte findet",
+          "Dass es in Schweden praktisch keine Vereine oder Freizeitgruppen gibt",
+          "Dass Kontakt zu Nachbar:innen in Schweden unüblich ist"
+        ],
+        correct: 0,
+        difficulty: "mittel",
+        explanation: "Schwed:innen gelten im ersten Kontakt oft als zurückhaltend – echte Freundschaften brauchen häufig mehr Zeit und Geduld, als viele Neuankömmlinge erwarten. Vereine und Freizeitgruppen helfen dabei sehr."
       }
     ]
   }
@@ -365,10 +563,10 @@ const QUIZ_TRACKS = [
           {
             question: "In welche Richtung fließen die meisten großen schwedischen Flüsse?",
             answers: [
-              "Von den Fjällen im Nordwesten Richtung Ostsee/Bottnischer Meerbusen im Südosten",
-              "Von Süden nach Norden ins Nordmeer",
-              "Kreisförmig um die großen Seen herum",
-              "Alle münden direkt in die Nordsee"
+              "Von den Fjällen im Nordwesten Richtung Ostsee im Südosten",
+              "Von den Küsten im Süden Richtung Fjäll im Norden",
+              "Von Westen nach Osten quer durch die großen Seen",
+              "Von Norden nach Süden direkt in die Nordsee"
             ],
             correct: 0,
             difficulty: "schwer",
@@ -383,7 +581,7 @@ const QUIZ_TRACKS = [
           },
           {
             question: "Wie viele Menschen leben in Schweden (Stand 2026)?",
-            answers: ["ca. 6 Millionen", "gut 10,6 Millionen", "ca. 15 Millionen", "ca. 25 Millionen"],
+            answers: ["ca. 6 Millionen", "ca. 10,6 Millionen", "ca. 15 Millionen", "ca. 25 Millionen"],
             correct: 1,
             difficulty: "mittel",
             explanation: "Schweden hat laut Statistikbehörde SCB rund 10,6 Millionen Einwohner."
@@ -422,6 +620,13 @@ const QUIZ_TRACKS = [
             correct: 0,
             difficulty: "leicht",
             explanation: "Kiruna liegt weit oberhalb des Polarkreises und ist die nördlichste größere Stadt Schwedens – bekannt auch für Bergbau und Polarnächte."
+          },
+          {
+            question: "Wie heißt die Hauptstadt Schwedens?",
+            answers: ["Stockholm", "Göteborg", "Malmö", "Uppsala"],
+            correct: 0,
+            difficulty: "leicht",
+            explanation: "Stockholm ist mit rund 1 Million Einwohnern in der Kernstadt und über 2,5 Millionen im gesamten Ballungsraum die Hauptstadt und größte Stadt Schwedens."
           }
         ]
       },
@@ -462,10 +667,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was bezeichnet man in Schweden als „Fjäll“?",
             answers: [
-              "Ein tiefes Fjordtal",
-              "Eine baumlose Hochfläche/Berglandschaft oberhalb der Waldgrenze",
-              "Eine Insel in den Schären",
-              "Einen künstlich angelegten See"
+              "Ein tief eingeschnittenes Fjordtal an der Westküste",
+              "Eine baumlose Hochfläche oberhalb der natürlichen Waldgrenze",
+              "Eine kleine, felsige Insel innerhalb der Schärenlandschaft",
+              "Einen künstlich angelegten Stausee im Norden des Landes"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -512,10 +717,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was unterscheidet Nord- und Südschweden landschaftlich am stärksten?",
             answers: [
-              "Der Norden ist flach und landwirtschaftlich geprägt, der Süden gebirgig",
-              "Der Norden ist geprägt von Fjäll, Wald und dünner Besiedlung, der Süden flacher, landwirtschaftlicher und dichter besiedelt",
-              "Es gibt keine nennenswerten Unterschiede",
-              "Der Süden hat mehr Schnee als der Norden"
+              "Der Norden ist flach und landwirtschaftlich geprägt, der Süden gebirgig und dünn besiedelt",
+              "Der Norden ist geprägt von Fjäll, Wald und dünner Besiedlung, der Süden flacher und dichter besiedelt",
+              "Beide Landesteile sind landschaftlich und in der Besiedlung nahezu identisch",
+              "Der Süden ist gebirgiger und dünner besiedelt als der Norden"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -539,10 +744,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie wahrscheinlich ist es, in freier Wildbahn einen Elch zu sehen?",
             answers: [
-              "So gut wie unmöglich",
+              "So gut wie unmöglich, Elche meiden jeden Kontakt zu Menschen",
               "Eher selten, aber bei Fahrten durch Wald in der Dämmerung durchaus realistisch",
-              "Garantiert bei jedem Waldspaziergang",
-              "Nur im Zoo möglich"
+              "So gut wie garantiert bei jedem einzelnen Waldspaziergang",
+              "Nur in eingezäunten Wildgehegen oder im Zoo möglich"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -572,10 +777,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wem gehören die Rentiere in Schweden?",
             answers: [
-              "Sie sind komplett wild und gehören niemandem",
-              "Sie sind halbdomestizierte Nutztiere, meist im Besitz samischer Rentierzüchter:innen",
-              "Sie gehören dem schwedischen Staat",
-              "Sie gehören den jeweiligen Nationalparks"
+              "Sie sind komplett wild und stehen im Eigentum niemandes",
+              "Sie sind halbdomestizierte Nutztiere im Besitz samischer Rentierzüchter:innen",
+              "Sie stehen im Eigentum des schwedischen Staates",
+              "Sie stehen im Eigentum der jeweiligen Nationalparkverwaltung"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -584,10 +789,10 @@ const QUIZ_TRACKS = [
           {
             question: "In welchem Teil Schwedens findet die Rentierzucht statt?",
             answers: [
-              "Nur auf Gotland",
+              "Nur auf der Insel Gotland im äußersten Süden",
               "Im Rentierzuchtgebiet in Nord- und Mittelschweden, rund einem Drittel der Landesfläche",
-              "Nur direkt an der Südküste",
-              "In ganz Schweden gleichmäßig verteilt"
+              "Nur direkt entlang der schwedischen Südküste",
+              "Gleichmäßig verteilt über das gesamte Land"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -653,10 +858,10 @@ const QUIZ_TRACKS = [
           {
             question: "Gibt es Gegenden in Schweden, in denen im Winter die Sonne gar nicht aufgeht?",
             answers: [
-              "Nein, nirgends in Schweden",
-              "Ja, z. B. um Kiruna, für etwa 3 Wochen im Dezember/Januar (Polarnacht)",
-              "Ja, aber nur für einen einzigen Tag",
-              "Ja, in ganz Schweden für mehrere Monate"
+              "Nein, nirgends in Schweden geht die Sonne im Winter komplett aus",
+              "Ja, z. B. um Kiruna, für etwa 3 Wochen im Dezember/Januar",
+              "Ja, aber nur an einem einzigen festen Kalendertag im Jahr",
+              "Ja, im gesamten Land für mehrere Monate am Stück"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -672,10 +877,10 @@ const QUIZ_TRACKS = [
           {
             question: "Ist Schweden wirklich überall kälter als Deutschland?",
             answers: [
-              "Ja, in ganz Schweden ist es immer kälter",
-              "Nein – der Süden (z. B. Skåne) hat ein vergleichsweise mildes Klima, ähnlich Norddeutschland",
-              "Nein, Schweden ist überall wärmer als Deutschland",
-              "Das lässt sich nicht vergleichen"
+              "Ja, in ganz Schweden ist es das ganze Jahr über kälter als in Deutschland",
+              "Nein, der Süden (z. B. Skåne) hat ein mildes Klima, ähnlich Norddeutschland",
+              "Nein, Schweden ist im Schnitt überall wärmer als Deutschland",
+              "Nein, beide Länder haben im Schnitt ein nahezu identisches Klima"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -691,10 +896,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie groß sind die Temperaturunterschiede zwischen Nord- und Südschweden im Winter?",
             answers: [
-              "Kaum vorhanden, überall ähnlich",
-              "Erheblich – im Norden oft deutlich unter −20 °C, im Süden häufig nur leicht unter 0 °C",
-              "Der Süden ist im Winter meist kälter als der Norden",
-              "Nur wenige Grad Unterschied"
+              "Kaum vorhanden, im Winter herrschen überall ähnliche Temperaturen",
+              "Erheblich, im Norden oft unter −20 °C, im Süden häufig nur leicht unter 0 °C",
+              "Erheblich, aber der Süden ist im Winter meist kälter als der Norden",
+              "Vorhanden, aber nur wenige Grad Unterschied zwischen den Landesteilen"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -703,10 +908,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie dunkel ist ein schwedischer Winter wirklich?",
             answers: [
-              "In ganz Schweden herrscht durchgehende Dunkelheit",
-              "Im hohen Norden gibt es eine echte Polarnacht, im Süden dagegen normale, nur kurze Wintertage mit wenigen Stunden Tageslicht",
-              "Es ist im Winter überall genauso hell wie im Sommer",
-              "Nur in Stockholm wird es im Winter dunkel"
+              "Im gesamten Land herrscht im Winter durchgehende Dunkelheit",
+              "Im hohen Norden gibt es eine echte Polarnacht, im Süden nur kurze Wintertage",
+              "Es ist im Winter im ganzen Land genauso hell wie im Sommer",
+              "Nur in und um Stockholm wird es im Winter merklich dunkel"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -723,10 +928,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum sind so viele schwedische Häuser rot?",
             answers: [
-              "Rote Farbe war früher die günstigste Option, hergestellt als Nebenprodukt des Kupferbergbaus (Falu rödfärg)",
-              "Rot ist gesetzlich vorgeschrieben",
-              "Reine Modeerscheinung der letzten 10 Jahre",
-              "Weil rote Farbe am besten vor Elchen schützt"
+              "Rote Farbe war früher die günstigste Option, als Nebenprodukt des Kupferbergbaus in Falun",
+              "Rote Fassaden sind seit dem 18. Jahrhundert gesetzlich für Wohnhäuser vorgeschrieben",
+              "Der rote Farbton wurde erst in den letzten 10 Jahren zur landesweiten Modeerscheinung",
+              "Rote Farbe hält Elche und andere Wildtiere fern von Wohnhäusern"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -735,10 +940,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum ziehen Schweden zu Hause meistens ihre Schuhe aus?",
             answers: [
-              "Aus reiner Hygiene- und Sauberkeitstradition, verstärkt durch Schnee, Matsch und lange Winter",
-              "Weil es gesetzlich vorgeschrieben ist",
-              "Weil Schuhe in Schweden generell verboten sind",
-              "Nur bei offiziellen Anlässen"
+              "Aus einer Sauberkeitstradition, verstärkt durch Schnee, Matsch und lange Winter",
+              "Weil das Tragen von Straßenschuhen in Innenräumen gesetzlich verboten ist",
+              "Weil Schuhe in Schweden generell nur draußen getragen werden dürfen",
+              "Nur bei besonders förmlichen, offiziellen Anlässen üblich"
             ],
             correct: 0,
             difficulty: "leicht",
@@ -747,10 +952,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum stehen Briefkästen auf dem Land in Schweden häufig gebündelt an der Straße?",
             answers: [
-              "Aus Sicherheitsgründen gegen Diebstahl",
-              "Wegen der langen Anfahrtswege bei dünner Besiedlung liefert die Post oft nur bis zu Sammelstellen",
-              "Weil Einzelbriefkästen verboten sind",
-              "Weil sich Nachbarn die Post generell teilen müssen"
+              "Aus Sicherheitsgründen, um Diebstahl aus einzelnen Briefkästen zu erschweren",
+              "Wegen langer Anfahrtswege liefert die Post bei dünner Besiedlung oft nur bis zu Sammelstellen",
+              "Weil einzelne Briefkästen direkt am Haus gesetzlich verboten sind",
+              "Weil sich benachbarte Haushalte die Post grundsätzlich teilen müssen"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -759,10 +964,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum sind viele Grundstücke in Schweden nicht vollständig eingezäunt?",
             answers: [
-              "Zäune sind gesetzlich verboten",
-              "Wegen der Kultur rund um das Allemansrätten (Jedermannsrecht) und dem Vertrauen auf gegenseitige Rücksichtnahme",
-              "Weil Baumaterial für Zäune zu teuer ist",
-              "Weil es in Schweden keine Grundstücksgrenzen gibt"
+              "Vollständige Einzäunungen von Privatgrundstücken sind gesetzlich verboten",
+              "Wegen der Kultur rund ums Jedermannsrecht und dem Vertrauen auf gegenseitige Rücksichtnahme",
+              "Weil geeignetes Baumaterial für Zäune in Schweden kaum verfügbar ist",
+              "Weil es in Schweden grundsätzlich keine festgelegten Grundstücksgrenzen gibt"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -771,10 +976,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum gibt es in Schweden so viele „Loppis“ (Flohmärkte/Second-Hand-Läden)?",
             answers: [
-              "Weil neue Möbel in Schweden verboten sind",
+              "Weil der Verkauf neuer Möbel in Schweden staatlich stark reguliert ist",
               "Aus einer stark verankerten Spar- und Nachhaltigkeitskultur rund um Wiederverwendung",
-              "Nur wegen touristischer Nachfrage",
-              "Weil Geschäfte für Neuware fehlen"
+              "Fast ausschließlich wegen der Nachfrage von Tourist:innen aus dem Ausland",
+              "Weil es in Schweden kaum reguläre Geschäfte für Neuware gibt"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -790,10 +995,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum ist das Personnummer im schwedischen Alltag so wichtig?",
             answers: [
-              "Es wird praktisch für alles gebraucht: Bankkonto, Mietvertrag, Gesundheitswesen, Behördengänge",
-              "Es wird nur für die Steuererklärung benötigt",
-              "Es ist rein optional und selten nötig",
-              "Es ersetzt den Reisepass komplett"
+              "Es wird für nahezu alles gebraucht: Bankkonto, Mietvertrag, Gesundheitswesen, Behördengänge",
+              "Es wird ausschließlich für die jährliche Steuererklärung benötigt",
+              "Es ist im Alltag rein optional und wird nur selten wirklich benötigt",
+              "Es ersetzt in Schweden den Reisepass bei jeder Auslandsreise komplett"
             ],
             correct: 0,
             difficulty: "leicht",
@@ -802,10 +1007,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie funktioniert das Leben in sehr dünn besiedelten Regionen Schwedens meistens?",
             answers: [
-              "Mit sehr kurzen Wegen zu allem",
+              "Mit durchweg kurzen Wegen zu Läden, Schulen und Ärzten",
               "Mit oft langen Fahrtwegen, viel Eigenständigkeit und wichtiger digitaler Infrastruktur",
-              "Ohne jeden Zugang zu Internet oder Behörden",
-              "Nur mit öffentlichen Verkehrsmitteln, Autos sind selten"
+              "Weitgehend ohne verlässlichen Zugang zu Internet oder Behördendiensten",
+              "Fast ausschließlich mit öffentlichen Verkehrsmitteln, eigene Autos sind selten"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -814,10 +1019,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum besitzen so viele schwedische Familien ein Sommerhaus (sommarstuga)?",
             answers: [
-              "Weil es gesetzlich vorgeschrieben ist",
-              "Aus einer langen kulturellen Tradition, den Sommer möglichst naturnah am See oder Meer zu verbringen",
-              "Weil normale Wohnungen im Sommer geschlossen werden müssen",
-              "Nur aus steuerlichen Gründen"
+              "Weil der Besitz eines Sommerhauses für Familien gesetzlich vorgeschrieben ist",
+              "Aus einer langen kulturellen Tradition, den Sommer naturnah am See oder Meer zu verbringen",
+              "Weil normale Stadtwohnungen im Sommer zwangsweise geschlossen werden müssen",
+              "Fast ausschließlich aus steuerlichen Vorteilen beim Immobilienbesitz"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -827,9 +1032,9 @@ const QUIZ_TRACKS = [
             question: "Welche Alltagsgewohnheit überrascht Neuankömmlinge in Schweden besonders oft?",
             answers: [
               "„Fredagsmys“ – der feste gemütliche Freitagabend zuhause mit Chips und Filmen",
-              "Dass man in Schweden nie zusammen isst",
-              "Dass es in Schweden keine Wochenenden gibt",
-              "Dass Kaffee in Schweden verboten ist"
+              "Dass Familien in Schweden praktisch nie gemeinsam am Tisch essen",
+              "Dass es in Schweden traditionell gar kein arbeitsfreies Wochenende gibt",
+              "Dass der Konsum von Kaffee in Schweden gesetzlich stark eingeschränkt ist"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -846,10 +1051,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was ist eine echte schwedische „Fika“?",
             answers: [
-              "Schnell ein Kaffee to-go zwischendurch",
+              "Ein schneller Kaffee to-go zwischen zwei Terminen",
               "Eine bewusste, gemeinsame Kaffee- und Gebäckpause als soziales Ritual",
-              "Ein formelles Geschäftsessen",
-              "Ein alkoholisches Trinkspiel"
+              "Ein formelles, meist geschäftliches Mittagessen im Restaurant",
+              "Ein geselliges alkoholisches Trinkspiel am Abend"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -858,10 +1063,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie schneidet Schweden beim Zimtschnecken-Konsum im weltweiten Vergleich ab?",
             answers: [
-              "Sehr niedrig, Zimtschnecken sind eher unbekannt",
-              "Durchschnittlich, wie die meisten europäischen Länder",
-              "Schweden gehört weltweit zu den Ländern mit dem höchsten Zimtschnecken-Konsum pro Kopf",
-              "Zimtschnecken sind in Schweden gesetzlich reguliert"
+              "Sehr niedrig, Zimtschnecken sind in Schweden eher unbekannt",
+              "Durchschnittlich, ungefähr wie in den meisten europäischen Ländern",
+              "Sehr hoch, Schweden zählt weltweit zu den Ländern mit dem höchsten Konsum pro Kopf",
+              "Nicht messbar, da der Verkauf von Zimtschnecken gesetzlich reguliert ist"
             ],
             correct: 2,
             difficulty: "mittel",
@@ -877,10 +1082,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was ist Surströmming?",
             answers: [
-              "Ein süßes Gebäck",
-              "Fermentierter (vergorener) Hering mit sehr intensivem Geruch, traditionell v. a. in Nordschweden",
-              "Ein alkoholfreies Erfrischungsgetränk",
-              "Eine Suppe aus Rentierfleisch"
+              "Ein traditionelles süßes Gebäck aus Nordschweden",
+              "Fermentierter Hering mit intensivem Geruch, traditionell v. a. in Nordschweden",
+              "Ein alkoholfreies Erfrischungsgetränk aus Beeren des Nordens",
+              "Eine deftige Eintopfsuppe aus Rentierfleisch und Wurzelgemüse"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -938,9 +1143,9 @@ const QUIZ_TRACKS = [
             question: "Was gehört auf einen typisch schwedischen Weihnachtstisch (Julbord)?",
             answers: [
               "Weihnachtsschinken (Julskinka), Hering, Köttbullar und Janssons frestelse (Kartoffel-Sprotten-Auflauf)",
-              "Nur Fondue",
-              "Ausschließlich vegetarische Gerichte",
-              "Pizza und Pasta"
+              "Ausschließlich Käsefondue mit Weißbrot",
+              "Ausschließlich vegetarische Gerichte ohne Fleisch oder Fisch",
+              "Traditionell italienisch geprägte Gerichte wie Pizza und Pasta"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -950,9 +1155,9 @@ const QUIZ_TRACKS = [
             question: "Welches schwedische Lebensmittel überrascht viele Deutsche besonders?",
             answers: [
               "Kalles Kaviar – ein süßlich-rauchiger Fischrogen-Aufstrich aus der Tube",
-              "Normales Toastbrot",
-              "Gekochte Kartoffeln",
-              "Frisches Obst"
+              "Rundes, dunkles Roggenbrot zum Frühstück",
+              "Gekochte Kartoffeln mit Butter als Frühstücksgericht",
+              "Frisches Obst und Beeren als tägliches Frühstück"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -969,10 +1174,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was schaut ein Großteil Schwedens traditionell an Heiligabend im Fernsehen?",
             answers: [
-              "Einen schwedischen Actionfilm",
-              "„Kalle Anka och hans vänner önskar God Jul“ (Donald Duck) – seit 1959 jedes Jahr um 15 Uhr",
-              "Die Tagesschau in Dauerschleife",
-              "Ein Fußballspiel"
+              "Einen bekannten schwedischen Weihnachts-Spielfilm",
+              "Die Disney-Sendung „Donald Duck“ – seit 1959 jedes Jahr zur selben Uhrzeit",
+              "Die Nachrichten in einer speziellen Weihnachts-Dauerschleife",
+              "Ein festes jährliches Fußballspiel der Nationalmannschaft"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -981,10 +1186,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was passiert an Midsommar?",
             answers: [
-              "Ein stiller religiöser Feiertag ohne besondere Rituale",
+              "Ein stiller religiöser Feiertag ohne besondere Rituale oder Feiern",
               "Tanz um die Mittsommerstange, Blumenkränze und ein großes gemeinsames Fest zur Sommersonnenwende",
-              "Ein reines Familienessen ohne Feier",
-              "Ein Wintermarkt"
+              "Ein reines, eher zurückhaltendes Familienessen ohne öffentliche Feier",
+              "Ein traditioneller Wintermarkt mit Glühwein und Handwerkskunst"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -993,10 +1198,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum tragen Menschen am Luciatag (13. Dezember) weiße Gewänder mit Lichterkranz?",
             answers: [
-              "Zur Feier der Ernte",
+              "Zur jährlichen Feier der Ernte im tiefsten Winter",
               "Als Lichterfest in der dunkelsten Jahreszeit, zurückgehend auf die Legende der Heiligen Lucia",
-              "Als reines Modeevent",
-              "Zum Gedenken an eine Schlacht"
+              "Als reines, kommerziell geprägtes Modeevent der letzten Jahre",
+              "Zum Gedenken an eine historische Schlacht des Mittelalters"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -1006,9 +1211,9 @@ const QUIZ_TRACKS = [
             question: "Was wird am 30. April in Schweden traditionell gefeiert?",
             answers: [
               "Walpurgisnacht (Valborgsmässoafton) mit großen Frühlingsfeuern",
-              "Der schwedische Nationalfeiertag",
-              "Erntedank",
-              "Halloween"
+              "Der offizielle schwedische Nationalfeiertag mit Militärparade",
+              "Ein traditionelles Erntedankfest mit gemeinsamem Festessen",
+              "Eine an Halloween angelehnte Verkleidungsfeier für Kinder"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1017,10 +1222,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was ist eine „Kräftskiva“?",
             answers: [
-              "Ein Fest zur Wintersonnenwende",
+              "Ein traditionelles Fest zur Wintersonnenwende im Dezember",
               "Ein geselliges Krebsfest im August, mit Flusskrebsen, Gesang und lustigen Papierhüten",
-              "Eine Art Weihnachtsmarkt",
-              "Ein Segelwettbewerb"
+              "Eine Art regionaler Weihnachtsmarkt mit Handwerksständen",
+              "Ein jährlicher Segelwettbewerb entlang der Ostseeküste"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -1029,10 +1234,10 @@ const QUIZ_TRACKS = [
           {
             question: "Welche Rolle spielen Blumen an Midsommar?",
             answers: [
-              "Sie werden verbrannt, um Glück zu bringen",
-              "Blumenkränze im Haar, und laut Aberglaube bringen sieben verschiedene Blumen unter dem Kopfkissen Zukunftsträume vom Partner",
-              "Sie sind an Midsommar strikt verboten",
-              "Sie werden nur als Grabschmuck genutzt"
+              "Sie werden traditionell öffentlich verbrannt, um Glück für den Sommer zu bringen",
+              "Blumenkränze im Haar, und laut Aberglaube bringen sieben Blumensorten unter dem Kissen Träume vom Partner",
+              "Sie sind an Midsommar aus religiösen Gründen strikt verboten",
+              "Sie werden an diesem Tag traditionell nur als Grabschmuck genutzt"
             ],
             correct: 1,
             difficulty: "schwer",
@@ -1041,10 +1246,10 @@ const QUIZ_TRACKS = [
           {
             question: "Warum wird in Schweden der Heiligabend (24. Dezember) so groß gefeiert?",
             answers: [
-              "Weil der 24. Dezember der eigentliche Hauptfeiertag (Julafton) mit Geschenken und Festessen ist, anders als in vielen anderen Ländern",
-              "Weil der 25. Dezember in Schweden kein Feiertag ist",
-              "Weil Weihnachten in Schweden erst im Januar gefeiert wird",
-              "Weil es reiner Zufall der Kalenderwahl ist"
+              "Weil der 24. Dezember der eigentliche Hauptfeiertag (Julafton) mit Geschenken und Festessen ist",
+              "Weil der 25. Dezember in Schweden traditionell überhaupt kein Feiertag ist",
+              "Weil das eigentliche Weihnachtsfest in Schweden erst im Januar stattfindet",
+              "Weil die Wahl des Feiertags rein zufällig bei der Kalenderreform entstand"
             ],
             correct: 0,
             difficulty: "leicht",
@@ -1060,10 +1265,10 @@ const QUIZ_TRACKS = [
           {
             question: "Welche schwedische Tradition wirkt auf viele Ausländer besonders ungewöhnlich?",
             answers: [
-              "Das gemeinsame, oft öffentliche Anstich-Fest von Surströmming-Dosen wegen des extremen Geruchs",
-              "Das gemeinsame Weihnachtsessen",
-              "Das Tragen von Winterjacken im Winter",
-              "Das Trinken von Kaffee"
+              "Das gemeinsame, oft öffentliche Öffnen von Surströmming-Dosen wegen des extremen Geruchs",
+              "Das gemeinsame, feierliche Weihnachtsessen im engsten Familienkreis",
+              "Das ausgiebige Tragen dicker Winterjacken in der kalten Jahreszeit",
+              "Das regelmäßige, gesellige Trinken von Kaffee am Nachmittag"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1106,10 +1311,10 @@ const QUIZ_TRACKS = [
           {
             question: "Woher stammen die Farben der schwedischen Flagge?",
             answers: [
-              "Aus der EU-Flagge",
+              "Aus der Flagge der Europäischen Union, der Schweden später beitrat",
               "Aus dem königlichen Wappen (Tre Kronor), das Kreuz-Design wurde 1569 offiziell eingeführt",
-              "Aus der Fußball-Nationalmannschaft",
-              "Blau und Gelb wurden zufällig im 20. Jahrhundert gewählt"
+              "Aus den Trikotfarben der schwedischen Fußball-Nationalmannschaft",
+              "Blau und Gelb wurden rein zufällig erst im 20. Jahrhundert gewählt"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -1137,10 +1342,10 @@ const QUIZ_TRACKS = [
           {
             question: "Was hat Alfred Nobel mit Schweden zu tun?",
             answers: [
-              "Er war ein schwedischer König",
+              "Er war ein schwedischer König des 19. Jahrhunderts",
               "Er wurde in Stockholm geboren, erfand das Dynamit und stiftete testamentarisch den Nobelpreis",
-              "Er war Gründer von IKEA",
-              "Er hat gar keinen Bezug zu Schweden"
+              "Er war der Gründer des schwedischen Möbelhauses IKEA",
+              "Er wurde in Norwegen geboren und hat keinen echten Bezug zu Schweden"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -1164,9 +1369,9 @@ const QUIZ_TRACKS = [
             question: "Welcher Fakt über Schweden ist ein echter Weltrekord?",
             answers: [
               "Schweden hat mit 267.570 die meisten Inseln aller Länder weltweit",
-              "Schweden hat die meisten Einwohner Europas",
-              "Schweden hat den höchsten Berg der Welt",
-              "Schweden hat die größte Wüste Europas"
+              "Schweden hat mit weitem Abstand die meisten Einwohner Europas",
+              "Schweden besitzt mit dem Kebnekaise den höchsten Berg der Welt",
+              "Schweden beherbergt mit Abstand die größte Wüste Europas"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1176,9 +1381,9 @@ const QUIZ_TRACKS = [
             question: "Welche dieser Episoden aus der schwedischen Geschichte ist tatsächlich wahr?",
             answers: [
               "Königin Christina dankte 1654 ab, konvertierte zum Katholizismus und zog nach Rom",
-              "Schweden hatte nie ein Königshaus",
-              "Schweden war jahrhundertelang eine französische Kolonie",
-              "Stockholm wurde erst im 20. Jahrhundert gegründet"
+              "Schweden hatte in seiner gesamten Geschichte niemals ein eigenes Königshaus",
+              "Schweden war über mehrere Jahrhunderte eine Kolonie Frankreichs",
+              "Die Stadt Stockholm wurde erst im Verlauf des 20. Jahrhunderts gegründet"
             ],
             correct: 0,
             difficulty: "schwer",
@@ -1216,10 +1421,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie unterscheidet sich die Bevölkerungsdichte der beiden Länder?",
             answers: [
-              "Schweden ist deutlich dichter besiedelt als Deutschland",
-              "Deutschland ist mit ca. 241 Einwohnern/km² fast neunmal so dicht besiedelt wie Schweden mit ca. 26/km²",
-              "Beide Länder sind ungefähr gleich dicht besiedelt",
-              "Schweden hat gar keine Einwohner außerhalb der Städte"
+              "Schweden ist insgesamt deutlich dichter besiedelt als Deutschland",
+              "Deutschland ist insgesamt deutlich dichter besiedelt als Schweden",
+              "Beide Länder sind im Schnitt ungefähr gleich dicht besiedelt",
+              "Schweden hat mehr Einwohner pro km² als jedes andere Land Europas"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -1242,10 +1447,10 @@ const QUIZ_TRACKS = [
           {
             question: "Wie unterscheiden sich die Arbeitswege in dünn besiedelten Regionen beider Länder tendenziell?",
             answers: [
-              "In Schweden oft deutlich länger, wegen geringerer Besiedlungsdichte",
-              "In Deutschland immer länger",
-              "Es gibt praktisch keinen Unterschied",
-              "In beiden Ländern gibt es keine ländlichen Regionen mehr"
+              "In Schweden oft deutlich länger, wegen der geringeren Besiedlungsdichte",
+              "In Deutschland grundsätzlich immer länger als in Schweden",
+              "In beiden Ländern gibt es praktisch keinen messbaren Unterschied",
+              "In beiden Ländern gibt es inzwischen keine ländlichen Regionen mehr"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1255,9 +1460,9 @@ const QUIZ_TRACKS = [
             question: "Was ist beim Wohnen auf dem Land tendenziell unterschiedlich?",
             answers: [
               "In Schweden sind Grundstücke im Schnitt oft großzügiger und weniger dicht bebaut als in Deutschland",
-              "In Deutschland gibt es grundsätzlich größere Grundstücke",
-              "Beide Länder bauen identisch",
-              "In Schweden ist ländliches Wohnen gesetzlich verboten"
+              "In Deutschland sind ländliche Grundstücke grundsätzlich großzügiger geschnitten",
+              "In beiden Ländern sind ländliche Grundstücke im Schnitt nahezu identisch geschnitten",
+              "Wohnen außerhalb von Städten ist in Schweden gesetzlich untersagt"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1267,9 +1472,9 @@ const QUIZ_TRACKS = [
             question: "Welche alltägliche Sache funktioniert in beiden Ländern besonders unterschiedlich?",
             answers: [
               "Der Verkauf von hochprozentigem Alkohol – in Schweden nur im staatlichen Systembolaget",
-              "Das Zahlen mit Karte, das gibt es nur in Deutschland",
-              "Öffentliche Verkehrsmittel, die es nur in Schweden gibt",
-              "Der Kauf von Lebensmitteln generell"
+              "Das Bezahlen mit Bankkarte, das es in dieser Form nur in Deutschland gibt",
+              "Öffentliche Verkehrsmittel, die es in dieser Form nur in Schweden gibt",
+              "Der alltägliche Einkauf von Lebensmitteln im Supermarkt generell"
             ],
             correct: 0,
             difficulty: "leicht",
@@ -1279,9 +1484,9 @@ const QUIZ_TRACKS = [
             question: "Welche schwedische Selbstverständlichkeit würde viele Deutsche wahrscheinlich überraschen?",
             answers: [
               "Dass sich fast der gesamte Alltag – Banking, Behörden, Verträge – über eine einzige digitale Identität (BankID) abwickeln lässt",
-              "Dass es in Schweden kein Internet gibt",
-              "Dass Behördengänge in Schweden ausschließlich per Post laufen",
-              "Dass es keine Banken in Schweden gibt"
+              "Dass es in weiten Teilen Schwedens noch immer keinen verlässlichen Internetzugang gibt",
+              "Dass sämtliche Behördengänge in Schweden ausschließlich klassisch per Post laufen",
+              "Dass es in Schweden praktisch keine klassischen Banken mehr gibt"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1298,10 +1503,10 @@ const QUIZ_TRACKS = [
           {
             question: "Darf man dank Allemansrätten in Schweden wirklich überall zelten?",
             answers: [
-              "Ja, komplett uneingeschränkt überall",
-              "Weitgehend ja, aber mit Regeln: meist nur eine Nacht am selben Ort, nicht in Sichtweite von Wohnhäusern und nicht auf Privatgrund ohne Erlaubnis",
-              "Nein, Zelten ist in Schweden generell verboten",
-              "Nur mit teurer Sondergenehmigung"
+              "Ja, völlig uneingeschränkt an jedem beliebigen Ort im Land",
+              "Weitgehend ja, aber mit Regeln: meist nur eine Nacht, nicht in Sichtweite von Wohnhäusern",
+              "Nein, Zelten in der freien Natur ist in Schweden generell verboten",
+              "Nur mit einer kostenpflichtigen behördlichen Sondergenehmigung"
             ],
             correct: 1,
             difficulty: "mittel",
@@ -1317,10 +1522,10 @@ const QUIZ_TRACKS = [
           {
             question: "Gibt es mehr Elche in Schweden als Einwohner in mancher deutschen Großstadt?",
             answers: [
-              "Wahr – Schwedens Elchbestand (250.000–400.000) übertrifft die Einwohnerzahl vieler deutscher Großstädte",
-              "Falsch, es gibt nur wenige hundert Elche",
-              "Falsch, das ist rechnerisch unmöglich",
-              "Elche gibt es in Schweden gar nicht"
+              "Wahr, Schwedens Elchbestand übertrifft die Einwohnerzahl vieler deutscher Großstädte",
+              "Falsch, in Schweden leben insgesamt nur wenige hundert Elche",
+              "Falsch, Elche kommen in Schweden praktisch nicht mehr vor",
+              "Falsch, wildlebende Elche gibt es in Schweden grundsätzlich gar nicht"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1343,10 +1548,10 @@ const QUIZ_TRACKS = [
           {
             question: "Ist ganz Schweden im Winter dauerhaft schneebedeckt?",
             answers: [
-              "Wahr, überall liegt durchgehend Schnee",
-              "Falsch – der Süden, z. B. Skåne, hat oft nur wenig oder keinen dauerhaften Schnee",
-              "Wahr, aber nur in den Städten",
-              "Falsch, es schneit in Schweden nie"
+              "Wahr, im gesamten Land liegt den ganzen Winter über durchgehend Schnee",
+              "Falsch, der Süden, z. B. Skåne, hat oft nur wenig oder keinen dauerhaften Schnee",
+              "Wahr, aber ausschließlich in den größeren Städten des Landes",
+              "Falsch, in Schweden schneit es praktisch nie"
             ],
             correct: 1,
             difficulty: "leicht",
@@ -1362,10 +1567,10 @@ const QUIZ_TRACKS = [
           {
             question: "Gehören Rentiere in Schweden jemandem, oder leben sie einfach wild?",
             answers: [
-              "Wahr – die meisten sind halbdomestiziert und gehören samischen Rentierzüchter:innen",
-              "Falsch, sie sind komplett wild und gehören niemandem",
-              "Falsch, sie gehören dem Staat",
-              "Rentiere gibt es in Schweden gar nicht"
+              "Wahr, die meisten sind halbdomestiziert und gehören samischen Rentierzüchter:innen",
+              "Falsch, sie leben komplett wild und stehen im Eigentum niemandes",
+              "Falsch, sämtliche Rentiere stehen im Eigentum des schwedischen Staates",
+              "Falsch, wildlebende oder gehaltene Rentiere gibt es in Schweden gar nicht"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1374,10 +1579,10 @@ const QUIZ_TRACKS = [
           {
             question: "Kann man in Teilen Schwedens tatsächlich für vergleichsweise wenig Geld ein Haus kaufen?",
             answers: [
-              "Teilweise wahr – in sehr dünn besiedelten Regionen Norrlands sind Immobilien oft deutlich günstiger als in Städten",
-              "Komplett falsch, Häuser sind überall gleich teuer",
-              "Wahr, überall in Schweden sind Häuser spottbillig",
-              "Häuserkauf ist in Schweden für Ausländer verboten"
+              "Teilweise wahr, in dünn besiedelten Regionen Norrlands sind Häuser oft deutlich günstiger als in Städten",
+              "Komplett falsch, Immobilienpreise sind im gesamten Land nahezu identisch",
+              "Vollständig wahr, im gesamten Land sind Häuser durchweg spottbillig",
+              "Falsch, der Kauf von Häusern ist in Schweden für Ausländer:innen verboten"
             ],
             correct: 0,
             difficulty: "mittel",
@@ -1387,9 +1592,9 @@ const QUIZ_TRACKS = [
             question: "Was ist ein unglaublicher, aber tatsächlich wahrer Schweden-Fakt?",
             answers: [
               "Schweden war 1979 das erste Land der Welt, das das Schlagen von Kindern gesetzlich verbot",
-              "Schweden hatte nie eine eigene Währung",
-              "In Schweden ist Kaffeetrinken gesetzlich verboten",
-              "Schweden liegt südlich von Deutschland"
+              "Schweden hatte in seiner gesamten Geschichte niemals eine eigene Währung",
+              "Der Konsum von Kaffee ist in Schweden bis heute gesetzlich verboten",
+              "Schweden liegt geografisch vollständig südlich von Deutschland"
             ],
             correct: 0,
             difficulty: "schwer",

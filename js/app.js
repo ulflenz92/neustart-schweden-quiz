@@ -35,6 +35,9 @@ const resultMessageEl = document.getElementById("result-message");
 const retryButton = document.getElementById("retry-button");
 const otherCategoryButton = document.getElementById("other-category-button");
 
+const resultsCtaText = document.getElementById("results-cta-text");
+const resultsCtaSecondary = document.getElementById("results-cta-secondary");
+
 const discountBlock = document.getElementById("discount-block");
 const discountForm = document.getElementById("discount-form");
 const discountEmail = document.getElementById("discount-email");
@@ -370,6 +373,18 @@ function showResult() {
 
   resultTitleEl.textContent = title;
   resultMessageEl.textContent = message;
+
+  if (percent >= 80) {
+    resultsCtaText.textContent = "Ihr kennt euch schon richtig gut aus! Lasst uns im kostenlosen Kennenlerngespräch besprechen, wie eine Begleitung für euren Umzug konkret aussehen könnte.";
+    resultsCtaSecondary.hidden = false;
+  } else if (percent >= 50) {
+    resultsCtaText.textContent = "Solide Basis! Im kostenlosen, unverbindlichen Kennenlerngespräch klären wir gern eure offenen Fragen.";
+    resultsCtaSecondary.hidden = true;
+  } else {
+    resultsCtaText.textContent = "Ihr steht noch ganz am Anfang? Perfekt – genau dafür gibt's das kostenlose, unverbindliche Kennenlerngespräch.";
+    resultsCtaSecondary.hidden = true;
+  }
+
   showScreen("result");
 }
 

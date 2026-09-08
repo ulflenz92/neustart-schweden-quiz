@@ -456,6 +456,31 @@ main {
 }
 
 /* Rabattcode-Block */
+.results-cta {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #e9e2d4;
+  text-align: center;
+}
+
+.results-cta-text,
+#results-cta-text {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 1rem;
+}
+
+.results-cta-secondary {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: #647084;
+}
+
+.results-cta-secondary a {
+  color: var(--accent, #c1652f);
+  font-weight: 600;
+}
+
 .discount-block {
   margin-top: 2rem;
   padding-top: 1.75rem;
