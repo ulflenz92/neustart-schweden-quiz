@@ -413,9 +413,9 @@ const QUIZ_TRACKS = [
         question: "Welcher Fehler passiert vielen Familien beim Thema Job in Schweden am häufigsten?",
         answers: [
           "Sie kündigen ihren Job in Deutschland, bevor sie eine schwedische Anstellung oder einen Aufenthaltstitel sicher haben",
-          "Sie bewerben sich generell zu häufig auf zu viele offene Stellen gleichzeitig",
-          "Sie legen ihren Lebenslauf zu ausführlich statt zu kurz an",
-          "Sie sprechen im Bewerbungsgespräch zu viel Schwedisch statt Englisch"
+          "Sie bewerben sich zu wenig gezielt und verschicken überall denselben Standard-Lebenslauf",
+          "Sie unterschätzen, wie stark ein persönliches Netzwerk bei der schwedischen Jobsuche hilft",
+          "Sie bewerben sich zu spät und knüpfen erst nach dem Umzug erste berufliche Kontakte"
         ],
         correct: 0,
         difficulty: "mittel",
@@ -425,9 +425,9 @@ const QUIZ_TRACKS = [
         question: "Welcher Fehler bei der Wohnungssuche wird besonders oft unterschätzt?",
         answers: [
           "Man beginnt die Wohnungssuche viel zu spät und unterschätzt Wartezeiten und Konkurrenz",
-          "Man sucht ausschließlich über zu viele verschiedene Online-Portale gleichzeitig",
-          "Man besichtigt zu viele Wohnungen vor der endgültigen Entscheidung",
-          "Man fragt zu früh nach dem genauen Einzugstermin"
+          "Man verlässt sich auf ein einzelnes Wohnungsportal statt mehrere Kanäle gleichzeitig zu nutzen",
+          "Man legt bei der Besichtigung zu wenig Wert auf die Verkehrsanbindung der Wohnung",
+          "Man unterschätzt, wie wichtig ein vollständiger Einkommensnachweis für Vermieter:innen ist"
         ],
         correct: 0,
         difficulty: "leicht",
@@ -437,9 +437,9 @@ const QUIZ_TRACKS = [
         question: "Welche sprachliche Fehleinschätzung machen viele Neuankömmlinge?",
         answers: [
           "Sie gehen davon aus, dass Englisch dauerhaft für nahezu alle Lebensbereiche ausreicht, und lernen kaum Schwedisch",
-          "Sie lernen ausschließlich formelles Schwedisch, das im Alltag kaum vorkommt",
-          "Sie lernen zu früh Schwedisch, noch vor der Ankunft im Land",
-          "Sie sprechen im Alltag zu häufig Deutsch mit schwedischen Nachbarn"
+          "Sie lernen zu viel formelles Schwedisch aus Lehrbüchern, das im lockeren Alltag kaum vorkommt",
+          "Sie versuchen von Anfang an möglichst akzentfrei zu sprechen, statt einfach loszulegen",
+          "Sie sprechen zu früh mit Muttersprachler:innen, statt erst einen Sprachkurs abzuschließen"
         ],
         correct: 0,
         difficulty: "leicht",
@@ -449,9 +449,9 @@ const QUIZ_TRACKS = [
         question: "Was unterschätzen viele Familien in Bezug auf den schwedischen Winter?",
         answers: [
           "Wie stark die lange Dunkelheit und Isolation psychisch belasten kann, wenn man sich nicht darauf vorbereitet",
-          "Wie schwierig es ist, im Winter überhaupt warme Kleidung im Handel zu finden",
-          "Dass es im gesamten Land durchgehend Polarnacht gibt",
-          "Dass öffentliche Gebäude im Winter grundsätzlich geschlossen bleiben"
+          "Wie deutlich höher die Heizkosten im ersten Winter tatsächlich ausfallen",
+          "Wie schwierig es ist, im Winter geeignete Winterreifen für das Auto zu bekommen",
+          "Wie stark sich die Fahrzeiten zur Arbeit durch Schnee und Glätte verlängern"
         ],
         correct: 0,
         difficulty: "mittel",
@@ -461,9 +461,9 @@ const QUIZ_TRACKS = [
         question: "Welcher finanzielle Fehler kommt bei der Auswanderung nach Schweden häufig vor?",
         answers: [
           "Es wird kein finanzieller Puffer für die ersten Monate ohne gesichertes Einkommen eingeplant",
-          "Es wird zu viel Geld für die Wohnungseinrichtung vor dem Umzug ausgegeben",
-          "Es werden zu früh schwedische Aktien und Fonds gekauft",
-          "Es wird zu viel Bargeld statt Kartenzahlung mitgenommen"
+          "Es wird zu viel Geld für die komplette Wohnungseinrichtung gleich zu Beginn ausgegeben",
+          "Es werden zu lange parallel Konten und Verträge in Deutschland weitergeführt",
+          "Es werden die Kosten für Behördengänge und Dokumentenübersetzungen unterschätzt"
         ],
         correct: 0,
         difficulty: "mittel",
@@ -473,9 +473,9 @@ const QUIZ_TRACKS = [
         question: "Welche verbreitete Annahme über Schweden führt bei der Regionswahl oft zu Enttäuschung?",
         answers: [
           "Die Annahme, ganz Schweden sei wie Stockholm – urban, teuer und dicht besiedelt",
-          "Die Annahme, es gebe in Schweden überhaupt keine größeren Städte",
-          "Die Annahme, jede Region Schwedens habe exakt das gleiche Klima",
-          "Die Annahme, man dürfe als Ausländer nur in bestimmten Regionen wohnen"
+          "Die Unterschätzung, wie stark sich Immobilienpreise zwischen den Regionen unterscheiden",
+          "Die Entscheidung für eine Region nur, weil dort bereits Verwandte oder Bekannte leben",
+          "Die zu starke Gewichtung der Nähe zum nächsten internationalen Flughafen"
         ],
         correct: 0,
         difficulty: "leicht",
@@ -485,9 +485,9 @@ const QUIZ_TRACKS = [
         question: "Was wird bei Kindern beim Umzug nach Schweden häufig unterschätzt?",
         answers: [
           "Wie viel Zeit und Unterstützung Kinder brauchen, um sich sprachlich und sozial in der neuen Schule einzufinden",
-          "Wie schnell Kinder in der Regel bereits nach wenigen Tagen fließend Schwedisch sprechen",
-          "Dass Kinder in Schweden grundsätzlich keine Hausaufgaben bekommen",
-          "Dass ausländische Kinder in schwedischen Schulen nicht zugelassen werden"
+          "Wie stark sich der Ruf einer Schule von der tatsächlichen Passung fürs eigene Kind unterscheiden kann",
+          "Wie groß die Unterschiede zwischen schwedischem und deutschem Notensystem tatsächlich sind",
+          "Wie sehr der Kontakt zu alten Freund:innen in Deutschland die Eingewöhnung erschwert"
         ],
         correct: 0,
         difficulty: "mittel",
@@ -497,9 +497,9 @@ const QUIZ_TRACKS = [
         question: "Welcher Fehler passiert häufig, wenn Familien sich zu schnell endgültig festlegen?",
         answers: [
           "Sie kaufen ein Haus oder eine Wohnung, bevor sie die Region und den Alltag dort wirklich getestet haben",
-          "Sie mieten zunächst zu lange, statt sofort zu kaufen",
-          "Sie besuchen die Zielregion zu häufig vor dem endgültigen Umzug",
-          "Sie behalten ihre Wohnung in Deutschland zu lange als Rückfalloption"
+          "Sie mieten zunächst zu lange und verpassen dadurch günstige Kaufgelegenheiten",
+          "Sie lassen vor der Kaufentscheidung zu wenige Besichtigungstermine durchführen",
+          "Sie behalten ihre Wohnung in Deutschland zu lange als kostspielige Rückfalloption"
         ],
         correct: 0,
         difficulty: "schwer",
@@ -509,9 +509,9 @@ const QUIZ_TRACKS = [
         question: "Welcher Fehler passiert häufig beim Thema Gesundheitsversorgung?",
         answers: [
           "Viele informieren sich zu spät darüber, wie die Gesundheitsversorgung vor der vollständigen Anmeldung geregelt ist",
-          "Es werden zu viele private Zusatzversicherungen gleichzeitig abgeschlossen",
-          "Arztbesuche werden in der Anfangszeit deutlich zu häufig wahrgenommen",
-          "Verschriebene Rezepte werden grundsätzlich zu selten eingelöst"
+          "Es werden zu viele private Zusatzversicherungen abgeschlossen, die eigentlich nicht nötig wären",
+          "Man versäumt es, sich rechtzeitig bei einer festen Hausarztpraxis (vårdcentral) anzumelden",
+          "Man verlässt sich zu stark auf telefonische statt persönliche Arzttermine"
         ],
         correct: 0,
         difficulty: "mittel",
@@ -520,10 +520,10 @@ const QUIZ_TRACKS = [
       {
         question: "Was wird beim Aufbau eines sozialen Netzwerks in Schweden häufig unterschätzt?",
         answers: [
-          "Wie lange es dauert, außerhalb von Job und Schule feste Freundschaften mit Schwed:innen aufzubauen",
-          "Wie außergewöhnlich schnell man in Schweden neue enge Kontakte findet",
-          "Dass es in Schweden praktisch keine Vereine oder Freizeitgruppen gibt",
-          "Dass Kontakt zu Nachbar:innen in Schweden unüblich ist"
+          "Dass sich Freundschaften mit Schwed:innen oft deutlich langsamer entwickeln, als man es von zu Hause gewohnt ist",
+          "Wie sehr man sich beim Vereinsbeitritt auf wenige, statt viele gleichzeitige Aktivitäten fokussieren sollte",
+          "Wie stark man sich auf Kontakte über soziale Medien statt auf persönliche Treffen verlassen sollte",
+          "Wie lange es dauert, bis Nachbar:innen von sich aus den ersten Kontakt suchen"
         ],
         correct: 0,
         difficulty: "mittel",

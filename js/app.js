@@ -8,7 +8,10 @@ const state = {
   questions: [],
   currentIndex: 0,
   score: 0,
-  answered: false
+  answered: false,
+  // Zufällige Anzeige-Reihenfolge der Antworten der aktuellen Frage: answerOrder[Anzeigeposition] = Original-Index.
+  // Verhindert, dass die richtige Antwort immer an derselben Stelle steht (z. B. immer zuerst).
+  answerOrder: []
 };
 
 const screens = {
@@ -269,14 +272,16 @@ function renderQuestion() {
     difficultyBadge.hidden = true;
   }
 
+  state.answerOrder = shuffle(question.answers.map((_, i) => i));
+
   answersList.innerHTML = "";
-  question.answers.forEach((answerText, index) => {
+  state.answerOrder.forEach((originalIndex, displayIndex) => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "answer-button";
-    btn.textContent = answerText;
-    btn.addEventListener("click", () => selectAnswer(index, btn));
+    btn.textContent = question.answers[originalIndex];
+    btn.addEventListener("click", () => selectAnswer(displayIndex, btn));
     li.appendChild(btn);
     answersList.appendChild(li);
   });
@@ -287,13 +292,16 @@ function selectAnswer(selectedIndex, buttonEl) {
   state.answered = true;
 
   const question = state.questions[state.currentIndex];
-  const isCorrect = selectedIndex === question.correct;
+  const selectedOriginalIndex = state.answerOrder[selectedIndex];
+  const isCorrect = selectedOriginalIndex === question.correct;
   if (isCorrect) state.score += 1;
+
+  const correctDisplayIndex = state.answerOrder.indexOf(question.correct);
 
   const buttons = answersList.querySelectorAll(".answer-button");
   buttons.forEach((btn, index) => {
     btn.disabled = true;
-    if (index === question.correct) {
+    if (index === correctDisplayIndex) {
       btn.classList.add("correct");
     } else if (index === selectedIndex) {
       btn.classList.add("incorrect");
