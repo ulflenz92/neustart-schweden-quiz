@@ -72,6 +72,20 @@ Alle 10 Seiten erneut automatisiert geprüft (HTTP 200, keine JS-Fehler) + Scree
 
 ➡️ **Nächster Schritt:** Nutzer lädt die ZIP bei Netlify hoch und prüft das Ergebnis live.
 
+### Kritischer Bugfix: `NSv13.7-quiz-link-fix.zip` (Quiz-Link komplett kaputt)
+
+Nach Upload von NSv13.6 gemeldet: Das Quiz unter `/schweden-quiz` lud **komplett ohne CSS/JS** (nackter Browser-Standard-Look, "0/0"-Anzeige, keine Funktion).
+
+**Ursache:** Nav-Link zeigte auf `https://neustart-schweden.de/schweden-quiz` **ohne** abschließenden Schrägstrich. Das Quiz referenziert CSS/JS relativ (`css/style.css`, `js/app.js`). Ohne Slash am Ende löst der Browser das fälschlich zu `neustart-schweden.de/css/style.css` auf (Pfad ohne `/schweden-quiz/`-Präfix) – 404, da die `_redirects`-Regel nur `/schweden-quiz/*` (mit Slash) abfängt.
+
+**Fix:**
+- Alle 20 Nav-Link-Stellen (Desktop-Nav + Hamburger, je 10 Seiten) auf `.../schweden-quiz/` (mit Slash) korrigiert
+- `_redirects` um zusätzliche Sicherheitsnetz-Regel ergänzt: `/schweden-quiz` (ohne Slash) → 301-Redirect auf `/schweden-quiz/`, erst dann der Proxy zum Quiz. Greift jetzt auch bei alten Links/Lesezeichen ohne Slash.
+
+Automatisiert verifiziert: Nav-Link-href jetzt korrekt mit Slash, keine Stelle ohne Slash mehr übrig.
+
+➡️ **Nächster Schritt:** Nutzer lädt `NSv13.7-quiz-link-fix.zip` hoch und prüft, ob das Quiz jetzt korrekt mit Styling lädt.
+
 ## Weitere offene Themen
 
 - **Footer-Link zum Quiz auf allen Seiten zusätzlich zu Nav+Hamburger?** Tendenz "ja", noch nicht final bestätigt.
