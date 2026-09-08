@@ -86,6 +86,14 @@ Automatisiert verifiziert: Nav-Link-href jetzt korrekt mit Slash, keine Stelle o
 
 ➡️ **Nächster Schritt:** Nutzer lädt `NSv13.7-quiz-link-fix.zip` hoch und prüft, ob das Quiz jetzt korrekt mit Styling lädt.
 
+### Weitere Runde: `NSv13.8-hamburger-fragebogen-fix.zip` (vor dem Hochladen von NSv13.7 gemeldet)
+
+Nutzer bemerkte vor dem Upload: Im **Hamburger-Menü** stand auf allen 10 Seiten noch der Link "📋 Erst Fragebogen ausfüllen" (Airtable-Link, direkt vor "Kostenlos kennenlernen"). Das war eine andere Stelle als die bereits in NSv13.4 entfernte Fragebogen-**Box** – wurde beim ersten Entfernungsdurchgang übersehen.
+
+**Fix:** Link-Zeile + die jetzt ungenutzte zugehörige CSS-Regel (`.mobile-menu .fragebogen-link`) auf allen 10 Seiten entfernt. Enthält zusätzlich den Quiz-Link-Fix aus NSv13.7 (kumulativ). Automatisiert verifiziert: keine Fragebogen-Reste mehr, keine JS-Fehler, HTTP 200 überall.
+
+➡️ **Nächster Schritt:** Nutzer lädt `NSv13.8-hamburger-fragebogen-fix.zip` hoch (aktuellste Version, ersetzt NSv13.7).
+
 ## Weitere offene Themen
 
 - **Footer-Link zum Quiz auf allen Seiten zusätzlich zu Nav+Hamburger?** Tendenz "ja", noch nicht final bestätigt.
